@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Covid19 Stats Bago</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -12,4 +11,19 @@
     <string name="menu_slideshow">Slideshow</string>
 
     <string name="home_second">Home Second</string>
+
+    <string name="app_name">Covid-19</string>
+
+    <string name="title_home">အခြေအနေ</string>
+    <string name="title_pdf">ဆောင်ရန်ရှောင်ရန်</string>
+    <string name="title_website">သတင်း</string>
+    <string name="title_contact">ဆက်သွယ်ရန်ဖုန်း</string>
+    <string name="tiitle_quaratine">ကွာရတင်းစာရင်</string>
+
+    <string name="splash_label_one">ကိုးဗစ်နိုင်တီး ရောဂါအား အထိရောက်ဆုံးကာကွယ်ရန် နည်းလမ်းမှာ လက်ကို ဆပ်ပြာဖြင့်စက္ကန့် ၂၀.စင်ကြယ်အောင် ဆေးရမည်</string>
+    <string name="splash_label_two">အဆုတ်ရောင်ရောဂါ Cov 19ဖြစ်ပွားသည်ဟု သံသယရှိပါက နီးစပ်ရာ ကျန်းမာရေး ဌာနများသိူ့ အမြန်ဆုံး သတင်းပို့၍ ကုသမှုခံယူပါ</string>
+    <string name="splash_label_three">တစ်ကိုယ်ရည်သန့်ရှင်းမှုကို ဂရုပြုပါ အာဟာရပြည့်ဝအောင် စားသုံးပါ ကောင်းစွာအိပ်စက်အနားယူပါ</string>
+    <string name="splash_label_four">နှာချေ ၊ ချောင်းဆိုးသည့် အခါ နှာခေါင်းနှင့် ပါးစပ်ကို လုံခြံအောင် ဖုံးအုပ်ပါ</string>
+
+    <string name="returned_status">https://raw.githubusercontent.com/wyphyoe/covid19-stats-bago/master/returned_stats.json</string>
 </resources>
