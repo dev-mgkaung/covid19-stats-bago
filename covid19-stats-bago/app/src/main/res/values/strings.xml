@@ -25,5 +25,6 @@
     <string name="splash_label_three">တစ်ကိုယ်ရည်သန့်ရှင်းမှုကို ဂရုပြုပါ အာဟာရပြည့်ဝအောင် စားသုံးပါ ကောင်းစွာအိပ်စက်အနားယူပါ</string>
     <string name="splash_label_four">နှာချေ ၊ ချောင်းဆိုးသည့် အခါ နှာခေါင်းနှင့် ပါးစပ်ကို လုံခြံအောင် ဖုံးအုပ်ပါ</string>
 
+    <string name="coronavirusapi">https://api.covid19api.com/summary</string>
     <string name="returned_status">https://raw.githubusercontent.com/wyphyoe/covid19-stats-bago/master/returned_stats.json</string>
 </resources>
