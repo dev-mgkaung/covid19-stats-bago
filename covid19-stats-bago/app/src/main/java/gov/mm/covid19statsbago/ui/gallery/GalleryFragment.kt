@@ -1,31 +1,75 @@
 package gov.mm.covid19statsbago.ui.gallery
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import gov.mm.covid19statsbago.R
+import gov.mm.covid19statsbago.adapter.TableAdapter
+import gov.mm.covid19statsbago.datas.TableCellVO
+import gov.mm.covid19statsbago.datas.columnHeaderList
+import gov.mm.covid19statsbago.datas.rowHeaderList
+import gov.mm.covid19statsbago.datas.tableCellList
+import kotlinx.android.synthetic.main.fragment_gallery.*
 
-class GalleryFragment : Fragment() {
+class GalleryFragment : Fragment(R.layout.fragment_gallery) {
 
-    private lateinit var galleryViewModel: GalleryViewModel
+    private val tableAdapter: TableAdapter by lazy {
+        TableAdapter(requireContext(), 1)
+    }
 
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        galleryViewModel =
-                ViewModelProviders.of(this).get(GalleryViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_gallery, container, false)
-        val textView: TextView = root.findViewById(R.id.text_gallery)
-        galleryViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        table_view.apply {
+            setHasFixedWidth(false)
+            adapter = tableAdapter
+        }
+
+        val tableCellData = mutableListOf<MutableList<TableCellVO>>()
+        (1..15).forEach {
+            tableCellData.add(
+                tableCellList {
+                    tableCell {
+                        cellId = "1"
+                        data = "ပဲခူး"
+                    }
+                    tableCell {
+                        cellId = "1"
+                        data = "0$it-04-2020"
+                    }
+                    tableCell {
+                        cellId = "1"
+                        data = "1"
+                    }
+                    tableCell {
+                        cellId = "1"
+                        data = "1"
+                    }
+                }
+            )
+        }
+
+        tableAdapter.setAllItems(
+            columnHeaderList {
+                (1..4).forEach {
+                    columnHeader {
+                        data = when (it) {
+                            1 -> "စဥ်"
+                            2 -> "နေ့စွဲ"
+                            3 -> "ခရိုင်"
+                            else -> "မြို့နယ်"
+                        }
+                    }
+                }
+            },
+            rowHeaderList {
+                (1..15).forEach {
+                    rowHeader {
+                        data = "$it"
+                    }
+                }
+            },
+            tableCellData
+        )
     }
 }
