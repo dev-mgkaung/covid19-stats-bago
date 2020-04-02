@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 class JsonParsingDashboardList {
     fun getResponseForDashboard(
-        success: (List<CovidCountry>) -> Unit = {},
+        success: (List<CovidCountry>, String) -> Unit = { _, _ -> },
         error: (Throwable) -> Unit = {}
     ) {
         val retrofit = Retrofit.Builder()
@@ -34,7 +34,9 @@ class JsonParsingDashboardList {
                 response: Response<CovidCountryResponse>
             ) {
                 if (response.isSuccessful) {
-                    success((response.body() ?: CovidCountryResponse(mutableListOf())).data)
+                    with((response.body() ?: CovidCountryResponse("", mutableListOf()))) {
+                        success(data, date)
+                    }
                 }
             }
         })

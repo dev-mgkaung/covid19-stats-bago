@@ -26,13 +26,13 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         JsonParsingDashboardList().getResponseForDashboard(
-            success = {
-                globalconfirmcount.text = it.sumBy { it.totalConfirmed }.toUniNumber()
-                globalDeathCount.text = it.sumBy { it.totalDeaths }.toUniNumber()
-                globalRecoverCount.text = it.sumBy { it.totalRecovered }.toUniNumber()
-
-                if (it.any { it.country == "Burma" }) {
-                    with(it.filter { it.country == "Burma" }.first()) {
+            success = { data, date ->
+                globalconfirmcount.text = data.sumBy { it.totalConfirmed }.toUniNumber()
+                globalDeathCount.text = data.sumBy { it.totalDeaths }.toUniNumber()
+                globalRecoverCount.text = data.sumBy { it.totalRecovered }.toUniNumber()
+                todaydate.text = date
+                if (data.any { it.country == "Burma" }) {
+                    with(data.first { it.country == "Burma" }) {
                         mmconfirmcount.text = totalConfirmed.toUniNumber()
                         mmDeathCount.text = totalDeaths.toUniNumber()
                         mmRecoverCount.text = totalRecovered.toUniNumber()

@@ -7,6 +7,8 @@ import com.google.gson.annotations.SerializedName
  */
 
 data class CovidCountryResponse(
+    @SerializedName("Date")
+    val date: String,
     @SerializedName("Countries")
     val data: List<CovidCountry>
 )
