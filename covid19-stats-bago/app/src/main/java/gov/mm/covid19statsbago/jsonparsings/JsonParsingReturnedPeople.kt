@@ -4,24 +4,23 @@ import android.util.Log
 import gov.mm.covid19statsbago.datas.Country
 import gov.mm.covid19statsbago.datas.Returned
 import gov.mm.covid19statsbago.datas.ReturnedPeople
-import gov.mm.covid19statsbago.datas.ReturnedPeopleDataSet
 import gov.mm.covid19statsbago.generals.ApiInterfaceReturnedPeople
 import org.json.JSONException
 import org.json.JSONObject
 import retrofit2.Retrofit
-import retrofit2.converter.scalars.ScalarsConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 
 /**
  * Created by Mg Kaung on 4/2/2020.
  */
 
-class JsonPasingReturnedPeople {
+class JsonParsingReturnedPeople {
     public fun getResponseForReturnedPeople(): ArrayList<ReturnedPeople>? {
-        var returnedPeopleDataSetList : ArrayList<ReturnedPeople> ? =  ArrayList<ReturnedPeople>()
+        var returnedPeopleDataSetList: ArrayList<ReturnedPeople>? = ArrayList<ReturnedPeople>()
 
         val retrofit = Retrofit.Builder()
             .baseUrl(ApiInterfaceReturnedPeople.JSONURL)
-            .addConverterFactory(ScalarsConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
         val api = retrofit.create(ApiInterfaceReturnedPeople::class.java)
         val call = api.getString()
@@ -38,32 +37,32 @@ class JsonPasingReturnedPeople {
                             val obj = JSONObject(jsonresponse)
                             val dataArray = obj.getJSONArray("returnedPeople")
                             for (jsonIndex in 0..dataArray.length() - 1) {
-                                var returnedPeople : ReturnedPeople= ReturnedPeople()
+                                var returnedPeople: ReturnedPeople = ReturnedPeople()
                                 var dataobj = dataArray.getJSONObject(jsonIndex)
-                                returnedPeople.id=dataobj.getString("id").toString()
-                                returnedPeople.district=dataobj.getString("district").toString()
-                                returnedPeople.township=dataobj.getString("township").toString()
-                                returnedPeople.date=dataobj.getString("date").toString()
-                                var returnedPeopledataobj=dataobj.getJSONObject("returned")
-                                val datareturned: Returned= Returned()
-                                datareturned.total=returnedPeopledataobj.get("total").toString()
-                                val returnedCountryDataArray = returnedPeopledataobj.getJSONArray("byCountry")
-                                var countryDataSetList : ArrayList<Country> ? =  ArrayList<Country>()
-                                for(innerjsonIndex in 0..returnedCountryDataArray.length() - 1)
-                                {
-                                    var country: Country= Country()
+                                returnedPeople.id = dataobj.getString("id").toString()
+                                returnedPeople.district = dataobj.getString("district").toString()
+                                returnedPeople.township = dataobj.getString("township").toString()
+                                returnedPeople.date = dataobj.getString("date").toString()
+                                var returnedPeopledataobj = dataobj.getJSONObject("returned")
+                                val datareturned: Returned = Returned()
+                                datareturned.total = returnedPeopledataobj.get("total").toString()
+                                val returnedCountryDataArray =
+                                    returnedPeopledataobj.getJSONArray("byCountry")
+                                var countryDataSetList: ArrayList<Country>? = ArrayList<Country>()
+                                for (innerjsonIndex in 0..returnedCountryDataArray.length() - 1) {
+                                    var country: Country = Country()
                                     var countrydataobj = dataArray.getJSONObject(innerjsonIndex)
-                                    country.country=countrydataobj.getString("country").toString()
-                                    country.total=countrydataobj.getString("total").toString()
+                                    country.country = countrydataobj.getString("country").toString()
+                                    country.total = countrydataobj.getString("total").toString()
                                     countryDataSetList?.add(country)
                                 }
                                 if (countryDataSetList != null) {
-                                    datareturned.byCountry=countryDataSetList
+                                    datareturned.byCountry = countryDataSetList
                                 };
 
-                                returnedPeople.returned=datareturned
-                                returnedPeople.suspicion=dataobj.getString("suspicion").toString()
-                                returnedPeople.remark=dataobj.getString("remark").toString()
+                                returnedPeople.returned = datareturned
+                                returnedPeople.suspicion = dataobj.getString("suspicion").toString()
+                                returnedPeople.remark = dataobj.getString("remark").toString()
                                 returnedPeopleDataSetList?.add(returnedPeople)
                             }
 
