@@ -5,6 +5,6 @@ package gov.mm.covid19statsbago.datas
  */
 
 data class Country(
-    var country: String="",
-    var total: String=""
+    var country: String = "",
+    var total: String = ""
 )

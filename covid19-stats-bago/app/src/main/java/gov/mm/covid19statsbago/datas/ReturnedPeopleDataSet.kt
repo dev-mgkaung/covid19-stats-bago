@@ -5,5 +5,5 @@ package gov.mm.covid19statsbago.datas
  */
 
 data class ReturnedPeopleDataSet(
-    var returnedPeople : ArrayList<ReturnedPeople>
+    var returnedPeople: ArrayList<ReturnedPeople>
 )
