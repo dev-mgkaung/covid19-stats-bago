@@ -10,3 +10,4 @@ const val RETURNED_PEOPLE_JSON_URL =
     "https://raw.githubusercontent.com/wyphyoe/covid19-stats-bago/master/"
 
 const val COVID_FOR_MM_JSON_URL = "https://api.covid19api.com/"
+s
