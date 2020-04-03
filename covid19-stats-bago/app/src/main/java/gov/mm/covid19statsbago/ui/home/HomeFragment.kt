@@ -8,7 +8,6 @@ import gov.mm.covid19statsbago.adapter.TableAdapter
 import gov.mm.covid19statsbago.datas.*
 import gov.mm.covid19statsbago.generals.toUniNumber
 import gov.mm.covid19statsbago.jsonparsings.JsonParsingDashboardList
-import kotlinx.android.synthetic.main.fragment_gallery.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.table_view
 
@@ -18,18 +17,19 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         super.onViewCreated(view, savedInstanceState)
         table_view.apply {
             setHasFixedWidth(false)
             adapter = tableAdapter
         }
-
-        swipe_refresh.apply {
-            isRefreshing = true
-            setOnRefreshListener {
-                refreshData()
-            }
-        }
+        refreshData()
+//        swipe_refresh.apply {
+//            isRefreshing = true
+//            setOnRefreshListener {
+//                refreshData()
+//            }
+//        }
 
     }
  private fun tableDataBind(tabledatalist :List<CovidCountry>)
@@ -37,7 +37,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
      val tableCellData = mutableListOf<MutableList<TableCellVO>>()
      for(index in 1 .. tabledatalist.size-2)
      {
-         tableCellData.add(
+         tableCellData?.add(
              tableCellList {
                  tableCell {
                      cellId = index.toString()
@@ -85,24 +85,24 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun refreshData() {
         JsonParsingDashboardList().getResponseForDashboard(
             success = { data, date ->
-                swipe_refresh.isRefreshing = false
-                tv_global_confirm_count.text = data.sumBy { it.totalConfirmed }.toUniNumber()
-                tv_global_death_count.text = data.sumBy { it.totalDeaths }.toUniNumber()
-                tv_global_recover_count.text = data.sumBy { it.totalRecovered }.toUniNumber()
+             //   swipe_refresh?.isRefreshing = false
+                tv_global_confirm_count?.text = data.sumBy { it.totalConfirmed }.toUniNumber()
+                tv_global_death_count?.text = data.sumBy { it.totalDeaths }.toUniNumber()
+                tv_global_recover_count?.text = data.sumBy { it.totalRecovered }.toUniNumber()
 
-                tv_today_date.text = date
+                tv_today_date?.text = date
                 if (data.any { it.country == "Burma" }) {
                     with(data.first { it.country == "Burma" }) {
-                        tv_mm_confirm_count.text = totalConfirmed.toUniNumber()
-                        tv_mm_death_count.text = totalDeaths.toUniNumber()
-                        tv_mm_recover_count.text = totalRecovered.toUniNumber()
+                        tv_mm_confirm_count?.text = totalConfirmed.toUniNumber()
+                        tv_mm_death_count?.text = totalDeaths.toUniNumber()
+                        tv_mm_recover_count?.text = totalRecovered.toUniNumber()
                     }
                 }
-                countrylistcardview.visibility=View.VISIBLE
+                countrylistcardview?.visibility=View.VISIBLE
                 tableDataBind(data)
             },
             error = {
-                swipe_refresh.isRefreshing = false
+                //swipe_refresh.isRefreshing = false
             }
         )
     }

@@ -1,4 +1,4 @@
-package gov.mm.covid19statsbago.ui.gallery
+package gov.mm.covid19statsbago.ui.returnstats
 
 import android.os.Bundle
 import android.view.View
@@ -9,9 +9,9 @@ import gov.mm.covid19statsbago.datas.TableCellVO
 import gov.mm.covid19statsbago.datas.columnHeaderList
 import gov.mm.covid19statsbago.datas.rowHeaderList
 import gov.mm.covid19statsbago.datas.tableCellList
-import kotlinx.android.synthetic.main.fragment_gallery.*
+import kotlinx.android.synthetic.main.fragment_return.*
 
-class GalleryFragment : Fragment(R.layout.fragment_gallery) {
+class ReturnedPeopleFragment : Fragment(R.layout.fragment_return) {
 
     private val tableAdapter: TableAdapter by lazy {
         TableAdapter(requireContext(), 1)
