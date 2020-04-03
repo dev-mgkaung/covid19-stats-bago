@@ -24,12 +24,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             adapter = tableAdapter
         }
         refreshData()
-//        swipe_refresh.apply {
-//            isRefreshing = true
-//            setOnRefreshListener {
-//                refreshData()
-//            }
-//        }
+        swipe_refresh?.apply {
+            isRefreshing = true
+            setOnRefreshListener {
+                refreshData()
+            }
+        }
 
     }
  private fun tableDataBind(tabledatalist :List<CovidCountry>)
@@ -45,15 +45,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                  }
                  tableCell {
                      cellId = index.toString()
-                     data = tabledatalist.get(index).totalConfirmed.toString()
+                     data = tabledatalist.get(index).totalConfirmed.toString().toUniNumber()
                  }
                  tableCell {
                      cellId = index.toString()
-                     data = tabledatalist.get(index).totalDeaths.toString()
+                     data = tabledatalist.get(index).totalDeaths.toString().toUniNumber()
                  }
                  tableCell {
                      cellId = index.toString()
-                     data = tabledatalist.get(index).totalRecovered.toString()
+                     data = tabledatalist.get(index).totalRecovered.toString().toUniNumber()
                  }
              })
      }
@@ -83,26 +83,33 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
      )
  }
     private fun refreshData() {
+        shimmerlayout?.visibility=View.VISIBLE
+        shimmerlayout?.startShimmerAnimation()
+        allcountrylist?.visibility=View.GONE
         JsonParsingDashboardList().getResponseForDashboard(
             success = { data, date ->
-             //   swipe_refresh?.isRefreshing = false
+                swipe_refresh?.isRefreshing = false
                 tv_global_confirm_count?.text = data.sumBy { it.totalConfirmed }.toUniNumber()
                 tv_global_death_count?.text = data.sumBy { it.totalDeaths }.toUniNumber()
                 tv_global_recover_count?.text = data.sumBy { it.totalRecovered }.toUniNumber()
 
                 tv_today_date?.text = date
-                if (data.any { it.country == "Burma" }) {
-                    with(data.first { it.country == "Burma" }) {
+                if (data.any { it?.country == "Burma" }) {
+                    with(data.first { it?.country == "Burma" }) {
                         tv_mm_confirm_count?.text = totalConfirmed.toUniNumber()
                         tv_mm_death_count?.text = totalDeaths.toUniNumber()
                         tv_mm_recover_count?.text = totalRecovered.toUniNumber()
                     }
                 }
                 countrylistcardview?.visibility=View.VISIBLE
+                shimmerlayout?.visibility=View.GONE
+                shimmerlayout?.stopShimmerAnimation()
+                allcountrylist?.visibility=View.VISIBLE
                 tableDataBind(data)
+
             },
             error = {
-                //swipe_refresh.isRefreshing = false
+                swipe_refresh?.isRefreshing = false
             }
         )
     }

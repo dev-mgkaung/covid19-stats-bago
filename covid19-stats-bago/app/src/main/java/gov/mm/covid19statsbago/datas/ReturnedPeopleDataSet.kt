@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
  */
 
 data class ReturnedPeopleResponse(
-    @SerializedName("returnedPeople")
+    @SerializedName("returned_stats")
     val data: List<ReturnedPeople>
 )
 
@@ -30,7 +30,7 @@ data class ReturnedPeople(
 
 data class Returned(
     @SerializedName("byCountry")
-    var byCountry: ArrayList<Country> = arrayListOf(),
+    var byCountry: List<Country> = arrayListOf(),
     @SerializedName("total")
     var total: String = ""
 )
