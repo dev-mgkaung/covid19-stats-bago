@@ -9,12 +9,12 @@
     <color name="colorRed">#E53935</color>
     <color name="colorGreen">#43A047</color>
 
-    <color name="selected_background_color">#15a4fa</color>
-    <color name="unselected_background_color">#1c324a</color>
-    <color name="shadow_background_color">#28415f</color>
-    <color name="unselected_header_background_color">#1f3650</color>
+    <color name="selected_background_color">#F4511E</color>
+    <color name="unselected_background_color">#FEFFFF</color>
+    <color name="shadow_background_color">#FDD835</color>
+    <color name="unselected_header_background_color">#ACACAC</color>
 
-    <color name="unselected_text_color">#537095</color>
-    <color name="selected_text_color">#ffffff</color>
+    <color name="unselected_text_color">#121213</color>
+    <color name="selected_text_color">#FFFFFF</color>
     <color name="separator_color">#273e5b</color>
 </resources>

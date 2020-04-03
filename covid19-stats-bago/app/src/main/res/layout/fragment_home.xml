@@ -1,280 +1,323 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/swipe_refresh"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.home.HomeFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            app:cardBackgroundColor="@color/colorWhite"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
             <LinearLayout
                 android:layout_width="match_parent"
+                android:background="@color/colorWhite"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:orientation="vertical"
-                android:padding="5dp">
+                android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    app:cardBackgroundColor="@color/colorWhite"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="တစ်ကမ္ဘာလုံးအခြေအနေပြစာရင်း"
+                            android:textColor="@color/colorGrey"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/edit_border_design"
+                                android:orientation="vertical"
+                                android:padding="1dp">
+
+                                <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_gravity="center"
+                                    android:background="@color/colorOrange"
+                                    android:gravity="center"
+                                    android:text="ပိုးတွေ့ရှိထားသူ"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/colorWhite"
+                                    android:textSize="14sp" />
+
+                                <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                                    android:id="@+id/tv_global_confirm_count"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/colorWhite"
+                                    android:gravity="center"
+                                    android:text="0000"
+                                    android:textColor="@color/colorOrange"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/edit_border_design"
+                                android:orientation="vertical"
+                                android:padding="1dp">
+
+                                <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_gravity="center"
+                                    android:background="@color/colorRed"
+                                    android:gravity="center"
+                                    android:text="သေဆုံးသူ"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/colorWhite"
+                                    android:textSize="14sp" />
+
+                                <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                                    android:id="@+id/tv_global_death_count"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/colorWhite"
+                                    android:gravity="center"
+                                    android:text="0000"
+                                    android:textColor="@color/colorRed"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/edit_border_design"
+                                android:orientation="vertical"
+                                android:padding="1dp">
+
+                                <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_gravity="center"
+                                    android:background="@color/colorGreen"
+                                    android:gravity="center"
+                                    android:text="ပြန်ကောင်းလာသူ"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/colorWhite"
+                                    android:textSize="14sp" />
+
+                                <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                                    android:id="@+id/tv_global_recover_count"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_gravity="center"
+                                    android:background="@color/colorWhite"
+                                    android:gravity="center"
+                                    android:text="0000"
+                                    android:textColor="@color/colorGreen"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="မြန်မာနိုင်ငံ အခြေအနေပြစာရင်း"
+                            android:textColor="@color/colorGrey"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="70dp"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/edit_border_design"
+                                android:orientation="vertical"
+                                android:padding="1dp">
+
+                                <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_gravity="center"
+                                    android:background="@color/colorOrange"
+                                    android:gravity="center"
+                                    android:text="ပိုးတွေ့ရှိထားသူ"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/colorWhite"
+                                    android:textSize="14sp" />
+
+                                <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                                    android:id="@+id/tv_mm_confirm_count"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/colorWhite"
+                                    android:gravity="center"
+                                    android:text="0000"
+                                    android:textColor="@color/colorOrange"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/edit_border_design"
+                                android:orientation="vertical"
+                                android:padding="1dp">
+
+                                <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_gravity="center"
+                                    android:background="@color/colorRed"
+                                    android:gravity="center"
+                                    android:text="သေဆုံးသူ"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/colorWhite"
+                                    android:textSize="14sp" />
+
+                                <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                                    android:id="@+id/tv_mm_death_count"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/colorWhite"
+                                    android:gravity="center"
+                                    android:text="0000"
+                                    android:textColor="@color/colorRed"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/edit_border_design"
+                                android:orientation="vertical"
+                                android:padding="1dp">
+
+                                <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_gravity="center"
+                                    android:background="@color/colorGreen"
+                                    android:gravity="center"
+                                    android:text="ပြန်ကောင်းလာသူ"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/colorWhite"
+                                    android:textSize="14sp" />
+
+                                <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                                    android:id="@+id/tv_mm_recover_count"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:layout_gravity="center"
+                                    android:background="@color/colorWhite"
+                                    android:gravity="center"
+                                    android:text="0000"
+                                    android:textColor="@color/colorGreen"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="10dp"
+                            android:background="#E0E0E0"
+                            android:padding="5dp" />
+
+                        <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                            android:id="@+id/tv_today_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="8dp"
+                            android:gravity="center"
+                            android:text="00/00/0000"
+                            android:textColor="@color/colorGrey"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="1dp"
+                            android:background="#E0E0E0"
+                            android:padding="5dp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
                 <gov.mm.covid19statsbago.mmfont.components.MMTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="တစ်ကမ္ဘာလုံးအခြေအနေပြစာရင်း"
-                    android:textColor="@color/colorGrey"
-                    android:textSize="16sp"
-                    android:textStyle="normal" />
-
-                <LinearLayout
+                    android:layout_margin="15dp"
+                    android:textStyle="bold"
+                    android:text="နိုင်ငံအလိုက် ရော ဂါ ကူးစက် မှု အခြေနေပြ ဇယား"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView"
+                    tools:layout_editor_absoluteX="10dp" />
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/edit_border_design"
-                        android:orientation="vertical"
-                        android:padding="1dp">
-
-                        <gov.mm.covid19statsbago.mmfont.components.MMTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="30dp"
-                            android:layout_gravity="center"
-                            android:background="@color/colorOrange"
-                            android:gravity="center"
-                            android:text="ပိုးတွေ့ရှိထားသူ"
-                            android:textAlignment="center"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="14sp" />
-
-                        <gov.mm.covid19statsbago.mmfont.components.MMTextView
-                            android:id="@+id/tv_global_confirm_count"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/colorWhite"
-                            android:gravity="center"
-                            android:text="0000"
-                            android:textColor="@color/colorOrange"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/edit_border_design"
-                        android:orientation="vertical"
-                        android:padding="1dp">
-
-                        <gov.mm.covid19statsbago.mmfont.components.MMTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="30dp"
-                            android:layout_gravity="center"
-                            android:background="@color/colorRed"
-                            android:gravity="center"
-                            android:text="သေဆုံးသူ"
-                            android:textAlignment="center"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="14sp" />
-
-                        <gov.mm.covid19statsbago.mmfont.components.MMTextView
-                            android:id="@+id/tv_global_death_count"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/colorWhite"
-                            android:gravity="center"
-                            android:text="0000"
-                            android:textColor="@color/colorRed"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/edit_border_design"
-                        android:orientation="vertical"
-                        android:padding="1dp">
-
-                        <gov.mm.covid19statsbago.mmfont.components.MMTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="30dp"
-                            android:layout_gravity="center"
-                            android:background="@color/colorGreen"
-                            android:gravity="center"
-                            android:text="ပြန်ကောင်းလာသူ"
-                            android:textAlignment="center"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="14sp" />
-
-                        <gov.mm.covid19statsbago.mmfont.components.MMTextView
-                            android:id="@+id/tv_global_recover_count"
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:layout_gravity="center"
-                            android:background="@color/colorWhite"
-                            android:gravity="center"
-                            android:text="0000"
-                            android:textColor="@color/colorGreen"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:visibility="gone"
+                    android:id="@+id/countrylistcardview"
+                    app:cardBackgroundColor="@color/colorWhite"
+                    app:cardCornerRadius="16dp"
+                    android:layout_marginBottom="?android:actionBarSize"
+                    app:cardElevation="16dp">
+                <com.evrencoskun.tableview.TableView
+                    android:id="@+id/table_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="မြန်မာနိုင်ငံ အခြေအနေပြစာရင်း"
-                    android:textColor="@color/colorGrey"
-                    android:textSize="16sp"
-                    android:textStyle="normal" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="70dp"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/edit_border_design"
-                        android:orientation="vertical"
-                        android:padding="1dp">
-
-                        <gov.mm.covid19statsbago.mmfont.components.MMTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="30dp"
-                            android:layout_gravity="center"
-                            android:background="@color/colorOrange"
-                            android:gravity="center"
-                            android:text="ပိုးတွေ့ရှိထားသူ"
-                            android:textAlignment="center"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="14sp" />
-
-                        <gov.mm.covid19statsbago.mmfont.components.MMTextView
-                            android:id="@+id/tv_mm_confirm_count"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/colorWhite"
-                            android:gravity="center"
-                            android:text="0000"
-                            android:textColor="@color/colorOrange"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/edit_border_design"
-                        android:orientation="vertical"
-                        android:padding="1dp">
-
-                        <gov.mm.covid19statsbago.mmfont.components.MMTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="30dp"
-                            android:layout_gravity="center"
-                            android:background="@color/colorRed"
-                            android:gravity="center"
-                            android:text="သေဆုံးသူ"
-                            android:textAlignment="center"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="14sp" />
-
-                        <gov.mm.covid19statsbago.mmfont.components.MMTextView
-                            android:id="@+id/tv_mm_death_count"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@color/colorWhite"
-                            android:gravity="center"
-                            android:text="0000"
-                            android:textColor="@color/colorRed"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/edit_border_design"
-                        android:orientation="vertical"
-                        android:padding="1dp">
-
-                        <gov.mm.covid19statsbago.mmfont.components.MMTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="30dp"
-                            android:layout_gravity="center"
-                            android:background="@color/colorGreen"
-                            android:gravity="center"
-                            android:text="ပြန်ကောင်းလာသူ"
-                            android:textAlignment="center"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="14sp" />
-
-                        <gov.mm.covid19statsbago.mmfont.components.MMTextView
-                            android:id="@+id/tv_mm_recover_count"
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:layout_gravity="center"
-                            android:background="@color/colorWhite"
-                            android:gravity="center"
-                            android:text="0000"
-                            android:textColor="@color/colorGreen"
-                            android:textSize="15sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
-                    android:background="#E0E0E0"
-                    android:padding="5dp" />
-
-                <gov.mm.covid19statsbago.mmfont.components.MMTextView
-                    android:id="@+id/tv_today_date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:gravity="center"
-                    android:text="00/00/0000"
-                    android:textColor="@color/colorGrey"
-                    android:textSize="16sp"
-                    android:textStyle="normal" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_margin="1dp"
-                    android:background="#E0E0E0"
-                    android:padding="5dp" />
+                    android:layout_height="match_parent"
+                    app:column_header_height="@dimen/table_view_cell_height"
+                    app:row_header_width="@dimen/table_view_row_header_width"
+                    app:selected_color="@color/selected_background_color"
+                    app:separator_color="@color/separator_color"
+                    app:shadow_color="@color/shadow_background_color"
+                    app:unselected_color="@color/unselected_background_color" />
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </LinearLayout>
+
+

@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/navigation_home">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/navigation_home"
         android:name="gov.mm.covid19statsbago.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="gov.mm.covid19statsbago.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/navigation_returnlist"
+        android:name="gov.mm.covid19statsbago.ui.returnstats.ReturnedPeopleFragment"
+        android:label="@string/title_returnhome"
+        tools:layout="@layout/fragment_return" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="gov.mm.covid19statsbago.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/navigation_treatment"
+        android:name="gov.mm.covid19statsbago.ui.treatment.TreatmentFragment"
+        android:label="@string/title_treatment"
+        tools:layout="@layout/fragment_treatment" />
 </navigation>
