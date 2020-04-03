@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "returned_stats": [{
             "id": "1",
@@ -1569,3 +1570,1604 @@
         }
     ]
 }
+=======
+{
+    "returned_stats": [
+{
+    "id": "1",
+    "district": "ပဲခူး",
+    "township": "ပဲခူး",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "ပဲခူး",
+    "township": "ကဝ",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "ပဲခူး",
+    "township": "သနပ်ပင်",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "ပဲခူး",
+    "township": "‌ဝေါ",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "ပဲခူး",
+    "township": "ဒိုက်ဦး",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "ပဲခူး",
+    "township": "ညောင်လေးပင်",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "ပဲခူး",
+    "township": "ရွှေကျင်",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "ပဲခူး",
+    "township": "‌ကျောက်တံခါး",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "‌တောင်ငူ",
+    "township": "‌တောင်ငူ",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "‌တောင်ငူ",
+    "township": "‌ရေတာရှည်",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "‌တောင်ငူ",
+    "township": "ထန်းတပင်",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "‌တောင်ငူ",
+    "township": "အုတ်တွင်း",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "‌တောင်ငူ",
+    "township": "ဖြူး",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "‌တောင်ငူ",
+    "township": "‌ကျောက်ကြီး",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "ပြည်",
+    "township": "‌ပြည်",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "ပြည်",
+    "township": "‌ပေါင်းတည်",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "ပြည်",
+    "township": "သဲကုန်း",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "ပြည်",
+    "township": "‌ရွှေတောင်",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "ပြည်",
+    "township": "ပန်းတောင်း",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "ပြည်",
+    "township": "‌ပေါက်ခေါင်း",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "သာယာဝတီ",
+    "township": "သာယာဝတီ",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "သာယာဝတီ",
+    "township": "လက်ပံတန်း",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "သာယာဝတီ",
+    "township": "မင်းလှ",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "သာယာဝတီ",
+    "township": "မိုးညို",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "သာယာဝတီ",
+    "township": "အုတ်ဖို",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "သာယာဝတီ",
+    "township": "ကြို့ပင်ကောက်",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "သာယာဝတီ",
+    "township": "ဇီးကုန်း",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+},
+{
+    "id": "1",
+    "district": "သာယာဝတီ",
+    "township": "နတ်တလင်း",
+    "date": "",
+    "returned":
+    {
+        "byCountry": [
+        {
+            "country": "တရုတ်",
+            "total": ""
+        },
+        {
+            "country": "လာအို",
+            "total": ""
+        },
+        {
+            "country": "ထိုင်း",
+            "total": ""
+        },
+        {
+            "country": "အမေရိကန်",
+            "total": ""
+        },
+        {
+            "country": "မလေးရှား",
+            "total": ""
+        },
+        {
+            "country": "စင်္ကာပူ",
+            "total": ""
+        },
+        {
+            "country": "ကိုရီးယား",
+            "total": ""
+        },
+        {
+            "country": "ရုရှား",
+            "total": ""
+        },
+        {
+            "country": "အင်္ဂလန်",
+            "total": ""
+        },
+        {
+            "country": "မြဝတီ",
+            "total": ""
+        },
+        {
+            "country": "အခြားနိုင်ငံ/ အခြားမြို့",
+            "total": ""
+        }],
+        "total": "",
+    },
+    "suspicion": "",
+    "remark": ""
+}]
+}
+>>>>>>> a0681f142966db12df65b3ea44191dfd01132ec9
