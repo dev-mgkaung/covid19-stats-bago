@@ -8,7 +8,6 @@ import android.view.animation.AnimationUtils
 import android.view.animation.LinearInterpolator
 import android.view.animation.RotateAnimation
 import androidx.appcompat.app.AppCompatActivity
-import gov.mm.covid19statsbago.HomeActivity
 import gov.mm.covid19statsbago.R
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 import kotlin.random.Random
@@ -69,7 +68,7 @@ class SplashScreen : AppCompatActivity() {
 
         Handler().postDelayed(
             {
-                startActivity(Intent(this, HomeActivity::class.java))
+                startActivity(Intent(this, BottomNavigationActivity::class.java))
                 finish()
             },
             3000

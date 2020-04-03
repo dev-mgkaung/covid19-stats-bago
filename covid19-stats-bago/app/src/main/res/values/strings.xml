@@ -27,4 +27,9 @@
 
     <string name="coronavirusapi">https://api.covid19api.com/summary</string>
     <string name="returned_status">https://raw.githubusercontent.com/wyphyoe/covid19-stats-bago/master/returned_stats.json</string>
+    <string name="title_activity_tab">TabActivity</string>
+
+    <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
+    <string name="title_dashboard">ပြည်ပမှဝင်ရောက်စာရင်း</string>
+    <string name="title_notifications">ကာကွယ်ကုသမှု</string>
 </resources>
