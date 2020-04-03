@@ -64,8 +64,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
              (1..4).forEach {
                  columnHeader {
                      data = when (it) {
-                         1 -> "နိုင်ငံ များ "
-                         2 -> "ရောဂါပိုးတွေ့ရှိသူ"
+                         1 -> "နိုင်ငံများ "
+                         2 -> "ပိုးတွေ့ရှိသူ"
                          3 -> "သေဆုံးသူ"
                          else -> "ပြန်ကောင်းသူ"
                      }
