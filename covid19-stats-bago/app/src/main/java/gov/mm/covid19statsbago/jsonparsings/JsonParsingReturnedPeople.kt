@@ -1,5 +1,6 @@
 package gov.mm.covid19statsbago.jsonparsings
 
+import android.util.Log
 import gov.mm.covid19statsbago.datas.*
 import gov.mm.covid19statsbago.generals.ApiInterfaceForRP
 import retrofit2.Call
@@ -23,21 +24,23 @@ class JsonParsingReturnedPeople {
             .build()
         val api = retrofit.create(ApiInterfaceForRP::class.java)
         val call = api.getReturnedPeopleList()
+
         call.enqueue(object : Callback<ReturnedPeopleResponse> {
             override fun onFailure(call: Call<ReturnedPeopleResponse>, t: Throwable) {
                 t.printStackTrace()
+                Log.e("aaao",t.toString())
                 error(t)
             }
-
             override fun onResponse(
                 call: Call<ReturnedPeopleResponse>,
                 response: Response<ReturnedPeopleResponse>
             ) {
                 if (response.isSuccessful) {
                     with((response.body() ?: ReturnedPeopleResponse( mutableListOf()))) {
+                        Log.e("dd=",data.size.toString())
                         success(data)
                     }
-                }
+                }else{ Log.e("ff=","Fail")}
             }
         })
     }

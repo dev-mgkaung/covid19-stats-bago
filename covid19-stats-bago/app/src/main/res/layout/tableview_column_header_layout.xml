@@ -5,7 +5,7 @@
     android:id="@+id/column_header_container"
     android:layout_width="wrap_content"
     android:layout_height="@dimen/table_view_cell_height"
-    android:background="@color/unselected_header_background_color">
+    android:background="#039BE5">
 
     <gov.mm.covid19statsbago.mmfont.components.MMTextView
         android:id="@+id/column_header_textView"

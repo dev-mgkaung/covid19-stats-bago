@@ -139,7 +139,7 @@ class TableAdapter(
     }
 
     private fun getCellViewType(column: Int): Int = when (column) {
-        lastDatePosition -> ACTION_TYPE
+        lastDatePosition -> COLOR_TYPE
         else -> 0
     }
 }
