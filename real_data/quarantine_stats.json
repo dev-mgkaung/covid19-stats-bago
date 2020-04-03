@@ -1,46 +1,83 @@
-[
+"quarantine_stats": [
 {
     "id": "DATA",
+    "date": "DATA",
     "district": "DATA",
     "township": "DATA",
-    "quarantine": [
+    "quarantine":
     {
         "returned_count": "DATA",
-        "places": [
+        "keep_count":
         {
-            "place": "DATA",
-            "returned_count": "DATA",
-            "keep_count":
-            {
-                "home": "DATA",
-                "religious_building": "DATA",
-                "hospital": "DATA",
-                "hotel": "DATA",
-                "avenue": "DATA",
-                "schools": "DATA",
-                "others": "DATA",
-                "total": "DATA",
-                "release_count": "DATA"
-            },
-            "suspicion_count":
-            {
-                "home": "DATA",
-                "religious_building": "DATA",
-                "hospital": "DATA",
-                "hotel": "DATA",
-                "avenue": "DATA",
-                "schools": "DATA",
-                "others": "DATA",
-                "total": "DATA",
-                "release_count": "DATA"
-            },
-            "positive_count":
-            {
-                "hospital": "DATA",
-                "death": "DATA",
-                "release_count": "DATA"
-            },
-            "total_release_count": "DATA"
-        }]
-    }]
-}]
+            "home": "DATA",
+            "religious_building": "DATA",
+            "hospital": "DATA",
+            "hotel": "DATA",
+            "avenue": "DATA",
+            "schools": "DATA",
+            "others": "DATA",
+            "total": "DATA",
+            "release_count": "DATA"
+        },
+        "suspicion_count":
+        {
+            "home": "DATA",
+            "religious_building": "DATA",
+            "hospital": "DATA",
+            "hotel": "DATA",
+            "avenue": "DATA",
+            "schools": "DATA",
+            "others": "DATA",
+            "total": "DATA",
+            "release_count": "DATA"
+        },
+        "positive_count":
+        {
+            "hospital": "DATA",
+            "death": "DATA",
+            "release_count": "DATA"
+        },
+        "total_release_count": "DATA"
+    }
+},
+{
+    "id": "DATA",
+    "date": "DATA",
+    "district": "DATA",
+    "township": "DATA",
+    "quarantine":
+    {
+        "returned_count": "DATA",
+        "keep_count":
+        {
+            "home": "DATA",
+            "religious_building": "DATA",
+            "hospital": "DATA",
+            "hotel": "DATA",
+            "avenue": "DATA",
+            "schools": "DATA",
+            "others": "DATA",
+            "total": "DATA",
+            "release_count": "DATA"
+        },
+        "suspicion_count":
+        {
+            "home": "DATA",
+            "religious_building": "DATA",
+            "hospital": "DATA",
+            "hotel": "DATA",
+            "avenue": "DATA",
+            "schools": "DATA",
+            "others": "DATA",
+            "total": "DATA",
+            "release_count": "DATA"
+        },
+        "positive_count":
+        {
+            "hospital": "DATA",
+            "death": "DATA",
+            "release_count": "DATA"
+        },
+        "total_release_count": "DATA"
+    }
+}, ]
