@@ -14,7 +14,9 @@ import com.google.android.material.navigation.NavigationView
 import gov.mm.covid19statsbago.R
 import gov.mm.covid19statsbago.generals.toUniNumber
 import gov.mm.covid19statsbago.jsonparsings.JsonParsingDashboardList
+import gov.mm.covid19statsbago.jsonparsings.JsonParsingReturnedPeople
 import kotlinx.android.synthetic.main.content_main.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +27,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+//        JsonParsingReturnedPeople().getResponseForReturnedPeople (
+//            success = { data->
+//
+//            },
+//            error = {
+//
+//            }
+//            )
+//
+        
         JsonParsingDashboardList().getResponseForDashboard(
             success = { data, date ->
                 globalconfirmcount.text = data.sumBy { it.totalConfirmed }.toUniNumber()

@@ -1,12 +1,10 @@
 package gov.mm.covid19statsbago.jsonparsings
 
-import android.util.Log
-import gov.mm.covid19statsbago.datas.Country
-import gov.mm.covid19statsbago.datas.Returned
-import gov.mm.covid19statsbago.datas.ReturnedPeople
-import gov.mm.covid19statsbago.generals.ApiInterfaceReturnedPeople
-import org.json.JSONException
-import org.json.JSONObject
+import gov.mm.covid19statsbago.datas.*
+import gov.mm.covid19statsbago.generals.ApiInterfaceForRP
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -15,75 +13,33 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 
 class JsonParsingReturnedPeople {
-    public fun getResponseForReturnedPeople(): ArrayList<ReturnedPeople>? {
-        var returnedPeopleDataSetList: ArrayList<ReturnedPeople>? = ArrayList<ReturnedPeople>()
-
+    fun getResponseForReturnedPeople(
+        success: (List<ReturnedPeople>) -> Unit = {  _ -> },
+        error: (Throwable) -> Unit = {}
+    ) {
         val retrofit = Retrofit.Builder()
-            .baseUrl(ApiInterfaceReturnedPeople.JSONURL)
+            .baseUrl(ApiInterfaceForRP.JSONURL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        val api = retrofit.create(ApiInterfaceReturnedPeople::class.java)
-        val call = api.getString()
-        call.enqueue(object : retrofit2.Callback<String> {
+        val api = retrofit.create(ApiInterfaceForRP::class.java)
+        val call = api.getReturnedPeopleList()
+        call.enqueue(object : Callback<ReturnedPeopleResponse> {
+            override fun onFailure(call: Call<ReturnedPeopleResponse>, t: Throwable) {
+                t.printStackTrace()
+                error(t)
+            }
+
             override fun onResponse(
-                call: retrofit2.Call<String>,
-                response: retrofit2.Response<String>
+                call: Call<ReturnedPeopleResponse>,
+                response: Response<ReturnedPeopleResponse>
             ) {
-                if (response.isSuccessful()) {
-                    if (response.body() != null) {
-                        val jsonresponse = response.body().toString()
-                        try {
-                            //getting the whole json object from the response
-                            val obj = JSONObject(jsonresponse)
-                            val dataArray = obj.getJSONArray("returnedPeople")
-                            for (jsonIndex in 0..dataArray.length() - 1) {
-                                var returnedPeople: ReturnedPeople = ReturnedPeople()
-                                var dataobj = dataArray.getJSONObject(jsonIndex)
-                                returnedPeople.id = dataobj.getString("id").toString()
-                                returnedPeople.district = dataobj.getString("district").toString()
-                                returnedPeople.township = dataobj.getString("township").toString()
-                                returnedPeople.date = dataobj.getString("date").toString()
-                                var returnedPeopledataobj = dataobj.getJSONObject("returned")
-                                val datareturned: Returned = Returned()
-                                datareturned.total = returnedPeopledataobj.get("total").toString()
-                                val returnedCountryDataArray =
-                                    returnedPeopledataobj.getJSONArray("byCountry")
-                                var countryDataSetList: ArrayList<Country>? = ArrayList<Country>()
-                                for (innerjsonIndex in 0..returnedCountryDataArray.length() - 1) {
-                                    var country: Country = Country()
-                                    var countrydataobj = dataArray.getJSONObject(innerjsonIndex)
-                                    country.country = countrydataobj.getString("country").toString()
-                                    country.total = countrydataobj.getString("total").toString()
-                                    countryDataSetList?.add(country)
-                                }
-                                if (countryDataSetList != null) {
-                                    datareturned.byCountry = countryDataSetList
-                                };
-
-                                returnedPeople.returned = datareturned
-                                returnedPeople.suspicion = dataobj.getString("suspicion").toString()
-                                returnedPeople.remark = dataobj.getString("remark").toString()
-                                returnedPeopleDataSetList?.add(returnedPeople)
-                            }
-
-                        } catch (e: JSONException) {
-                            e.printStackTrace()
-                        }
-                    } else {
-                        Log.i(
-                            "onEmptyResponse",
-                            "Returned empty response"
-                        )//Toast.makeText(getContext(),"Nothing returned",Toast.LENGTH_LONG).show();
+                if (response.isSuccessful) {
+                    with((response.body() ?: ReturnedPeopleResponse( mutableListOf()))) {
+                        success(data)
                     }
                 }
-
-            }
-
-            override fun onFailure(call: retrofit2.Call<String>, t: Throwable) {
-
             }
         })
-        return returnedPeopleDataSetList
     }
 
 }
