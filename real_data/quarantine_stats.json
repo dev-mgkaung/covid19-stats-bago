@@ -1,77 +1,927 @@
 {
-	"quarantine_stats": [{
-			"id": "DATA",
-			"date": "DATA",
-			"district": "DATA",
-			"township": "DATA",
-			"quarantine": {
-				"returned_count": "DATA",
-				"keep_count": {
-					"home": "DATA",
-					"religious_building": "DATA",
-					"hospital": "DATA",
-					"hotel": "DATA",
-					"avenue": "DATA",
-					"schools": "DATA",
-					"others": "DATA",
-					"total": "DATA",
-					"release_count": "DATA"
-				},
-				"suspicion_count": {
-					"home": "DATA",
-					"religious_building": "DATA",
-					"hospital": "DATA",
-					"hotel": "DATA",
-					"avenue": "DATA",
-					"schools": "DATA",
-					"others": "DATA",
-					"total": "DATA",
-					"release_count": "DATA"
-				},
-				"positive_count": {
-					"hospital": "DATA",
-					"death": "DATA",
-					"release_count": "DATA"
-				},
-				"total_release_count": "DATA"
-			}
-		},
-		{
-			"id": "DATA",
-			"date": "DATA",
-			"district": "DATA",
-			"township": "DATA",
-			"quarantine": {
-				"returned_count": "DATA",
-				"keep_count": {
-					"home": "DATA",
-					"religious_building": "DATA",
-					"hospital": "DATA",
-					"hotel": "DATA",
-					"avenue": "DATA",
-					"schools": "DATA",
-					"others": "DATA",
-					"total": "DATA",
-					"release_count": "DATA"
-				},
-				"suspicion_count": {
-					"home": "DATA",
-					"religious_building": "DATA",
-					"hospital": "DATA",
-					"hotel": "DATA",
-					"avenue": "DATA",
-					"schools": "DATA",
-					"others": "DATA",
-					"total": "DATA",
-					"release_count": "DATA"
-				},
-				"positive_count": {
-					"hospital": "DATA",
-					"death": "DATA",
-					"release_count": "DATA"
-				},
-				"total_release_count": "DATA"
-			}
-		}
-	]
+    "quarantine_stats": [
+    {
+        "id": "1",
+        "date": "3-4-2020",
+        "district": "ပဲခူး",
+        "township": "ပဲခူး",
+        "quarantine":
+        {
+            "returned_count": "1449",
+            "home_quarantine": "1301",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "1",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "145",
+                "others": "0",
+                "total": "146",
+                "release_count": "0"
+            },
+            "suspicion_count":
+            {
+                "hospital": "2",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "0"
+        }
+    },
+    {
+        "id": "2",
+        "date": "3-4-2020",
+        "district": "ပဲခူး",
+        "township": "ကဝ",
+        "quarantine":
+        {
+            "returned_count": "888",
+            "home_quarantine": "245",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "0",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "470",
+                "others": "0",
+                "total": "470",
+                "release_count": "173"
+            },
+            "suspicion_count":
+            {
+                "hospital": "0",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "173"
+        }
+    },
+    {
+        "id": "3",
+        "date": "3-4-2020",
+        "district": "ပဲခူး",
+        "township": "သနပ်ပင်",
+        "quarantine":
+        {
+            "returned_count": "881",
+            "home_quarantine": "498",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "0",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "378",
+                "others": "4",
+                "total": "382",
+                "release_count": "1"
+            },
+            "suspicion_count":
+            {
+                "hospital": "0",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "1"
+        }
+    },
+    {
+        "id": "4",
+        "date": "3-4-2020",
+        "district": "ပဲခူး",
+        "township": "ဝေါ",
+        "quarantine":
+        {
+            "returned_count": "976",
+            "home_quarantine": "549",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "0",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "427",
+                "others": "0",
+                "total": "427",
+                "release_count": "0"
+            },
+            "suspicion_count":
+            {
+                "hospital": "0",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "0"
+        }
+    },
+    {
+        "id": "5",
+        "date": "3-4-2020",
+        "district": "ပဲခူး",
+        "township": "ဒိုက်ဦး",
+        "quarantine":
+        {
+            "returned_count": "1541",
+            "home_quarantine": "1020",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "0",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "517",
+                "others": "0",
+                "total": "517",
+                "release_count": "0"
+            },
+            "suspicion_count":
+            {
+                "hospital": "4",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "0"
+        }
+    },
+    {
+        "id": "6",
+        "date": "3-4-2020",
+        "district": "ပဲခူး",
+        "township": "ညောင်လေးပင်",
+        "quarantine":
+        {
+            "returned_count": "1301",
+            "home_quarantine": "780",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "0",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "514",
+                "others": "0",
+                "total": "514",
+                "release_count": "0"
+            },
+            "suspicion_count":
+            {
+                "hospital": "3",
+                "release_count": "4"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "4"
+        }
+    },
+    {
+        "id": "7",
+        "date": "3-4-2020",
+        "district": "ပဲခူး",
+        "township": "ရွှေကျင်",
+        "quarantine":
+        {
+            "returned_count": "391",
+            "home_quarantine": "302",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "1",
+                "hotel": "0",
+                "avenue": "7",
+                "schools": "81",
+                "others": "0",
+                "total": "89",
+                "release_count": "0"
+            },
+            "suspicion_count":
+            {
+                "hospital": "0",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "0"
+        }
+    },
+    {
+        "id": "8",
+        "date": "3-4-2020",
+        "district": "ပဲခူး",
+        "township": "ကျောက်တံခါး",
+        "quarantine":
+        {
+            "returned_count": "1656",
+            "home_quarantine": "30 ",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "12",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "1198 ",
+                "others": "2 ",
+                "total": "1212",
+                "release_count": "414"
+            },
+            "suspicion_count":
+            {
+                "hospital": "0",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "414"
+        }
+    },
+    {
+        "id": "9",
+        "date": "3-4-2020",
+        "district": "တောင်ငူ",
+        "township": "တောင်ငူ",
+        "quarantine":
+        {
+            "returned_count": "799 ",
+            "home_quarantine": "549 ",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "15",
+                "hotel": "6",
+                "avenue": "0",
+                "schools": "218 ",
+                "others": "11",
+                "total": "250",
+                "release_count": "0"
+            },
+            "suspicion_count":
+            {
+                "hospital": "0",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "0"
+        }
+    },
+    {
+        "id": "10",
+        "date": "3-4-2020",
+        "district": "တောင်ငူ",
+        "township": "‌ရေတာရှည်",
+        "quarantine":
+        {
+            "returned_count": "669 ",
+            "home_quarantine": "266 ",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "0",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "402 ",
+                "others": "0",
+                "total": "402",
+                "release_count": "0"
+            },
+            "suspicion_count":
+            {
+                "hospital": "1",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "0"
+        }
+    },
+    {
+        "id": "11",
+        "date": "3-4-2020",
+        "district": "တောင်ငူ",
+        "township": "ထန်းတပင်",
+        "quarantine":
+        {
+            "returned_count": "726 ",
+            "home_quarantine": "0",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "0",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "662",
+                "others": "0",
+                "total": "662",
+                "release_count": "63"
+            },
+            "suspicion_count":
+            {
+                "hospital": "1",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "63"
+        }
+    },
+    {
+        "id": "12",
+        "date": "3-4-2020",
+        "district": "တောင်ငူ",
+        "township": "အုတ်တွင်း",
+        "quarantine":
+        {
+            "returned_count": "595 ",
+            "home_quarantine": "254 ",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "22",
+                "hotel": "0",
+                "avenue": "23",
+                "schools": "229 ",
+                "others": "19",
+                "total": "293",
+                "release_count": "48"
+            },
+            "suspicion_count":
+            {
+                "hospital": "0",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "48"
+        }
+    },
+    {
+        "id": "13",
+        "date": "3-4-2020",
+        "district": "တောင်ငူ",
+        "township": "ဖြူး",
+        "quarantine":
+        {
+            "returned_count": "1040",
+            "home_quarantine": "0 ",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "0",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "854",
+                "others": "0",
+                "total": "854",
+                "release_count": "185"
+            },
+            "suspicion_count":
+            {
+                "hospital": "1",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "185"
+        }
+    },
+    {
+        "id": "14",
+        "date": "3-4-2020",
+        "district": "တောင်ငူ",
+        "township": "‌ကျောက်ကြီး",
+        "quarantine":
+        {
+            "returned_count": "572",
+            "home_quarantine": "167 ",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "0",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "330",
+                "others": "0",
+                "total": "330",
+                "release_count": "74"
+            },
+            "suspicion_count":
+            {
+                "hospital": "1",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "74"
+        }
+    },
+    {
+        "id": "15",
+        "date": "3-4-2020",
+        "district": "ပြည်",
+        "township": "ပြည်",
+        "quarantine":
+        {
+            "returned_count": "609",
+            "home_quarantine": "281",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "0",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "321",
+                "others": "0",
+                "total": "321",
+                "release_count": "7"
+            },
+            "suspicion_count":
+            {
+                "hospital": "0",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "7"
+        }
+    },
+    {
+        "id": "16",
+        "date": "3-4-2020",
+        "district": "ပြည်",
+        "township": "‌ပေါင်းတည်",
+        "quarantine":
+        {
+            "returned_count": "167",
+            "home_quarantine": "0",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "4",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "127",
+                "others": "0",
+                "total": "131",
+                "release_count": "36"
+            },
+            "suspicion_count":
+            {
+                "hospital": "0",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "36"
+        }
+    },
+    {
+        "id": "17",
+        "date": "3-4-2020",
+        "district": "ပြည်",
+        "township": "သဲကုန်း",
+        "quarantine":
+        {
+            "returned_count": "1007",
+            "home_quarantine": "909",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "14",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "84",
+                "others": "0",
+                "total": "98",
+                "release_count": "0"
+            },
+            "suspicion_count":
+            {
+                "hospital": "0",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "0"
+        }
+    },
+    {
+        "id": "18",
+        "date": "3-4-2020",
+        "district": "ပြည်",
+        "township": "‌ရွှေတောင်",
+        "quarantine":
+        {
+            "returned_count": "289",
+            "home_quarantine": "199",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "42",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "37",
+                "others": "11",
+                "total": "90",
+                "release_count": "0"
+            },
+            "suspicion_count":
+            {
+                "hospital": "0",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "0"
+        }
+    },
+    {
+        "id": "19",
+        "date": "3-4-2020",
+        "district": "ပြည်",
+        "township": "ပန်းတောင်း",
+        "quarantine":
+        {
+            "returned_count": "183",
+            "home_quarantine": "137",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "1",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "45",
+                "others": "0",
+                "total": "46",
+                "release_count": "0"
+            },
+            "suspicion_count":
+            {
+                "hospital": "0",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "0"
+        }
+    },
+    {
+        "id": "20",
+        "date": "3-4-2020",
+        "district": "ပြည်",
+        "township": "‌ပေါက်ခေါင်း",
+        "quarantine":
+        {
+            "returned_count": "299",
+            "home_quarantine": "143",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "14",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "138",
+                "others": "0",
+                "total": "152",
+                "release_count": "0"
+            },
+            "suspicion_count":
+            {
+                "hospital": "0",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "4",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "0"
+        }
+    },
+    {
+        "id": "21",
+        "date": "3-4-2020",
+        "district": "သာယာဝတီ",
+        "township": "သာယာဝတီ",
+        "quarantine":
+        {
+            "returned_count": "504",
+            "home_quarantine": "401",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "0",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "103",
+                "others": "0",
+                "total": "103",
+                "release_count": "0"
+            },
+            "suspicion_count":
+            {
+                "hospital": "0",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "0"
+        }
+    },
+    {
+        "id": "22",
+        "date": "3-4-2020",
+        "district": "သာယာဝတီ",
+        "township": "လက်ပံတန်း",
+        "quarantine":
+        {
+            "returned_count": "633",
+            "home_quarantine": "125",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "0",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "385",
+                "others": "0",
+                "total": "358",
+                "release_count": "150"
+            },
+            "suspicion_count":
+            {
+                "hospital": "0",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "150"
+        }
+    },
+    {
+        "id": "23",
+        "date": "3-4-2020",
+        "district": "သာယာဝတီ",
+        "township": "မင်းလှ",
+        "quarantine":
+        {
+            "returned_count": "635",
+            "home_quarantine": "337",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "0",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "296",
+                "others": "0",
+                "total": "296",
+                "release_count": "0"
+            },
+            "suspicion_count":
+            {
+                "hospital": "2",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "0"
+        }
+    },
+    {
+        "id": "24",
+        "date": "3-4-2020",
+        "district": "သာယာဝတီ",
+        "township": "မိုးညို",
+        "quarantine":
+        {
+            "returned_count": "510",
+            "home_quarantine": "418",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "17",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "65",
+                "others": "7",
+                "total": "89",
+                "release_count": "1"
+            },
+            "suspicion_count":
+            {
+                "hospital": "0",
+                "release_count": "2"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "3"
+        }
+    },
+    {
+        "id": "25",
+        "date": "3-4-2020",
+        "district": "သာယာဝတီ",
+        "township": "အုတ်ဖို",
+        "quarantine":
+        {
+            "returned_count": "431",
+            "home_quarantine": "188",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "0",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "240",
+                "others": "0",
+                "total": "240",
+                "release_count": "0"
+            },
+            "suspicion_count":
+            {
+                "hospital": "3",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "0"
+        }
+    },
+    {
+        "id": "26",
+        "date": "3-4-2020",
+        "district": "သာယာဝတီ",
+        "township": "ကြို့ပင်ကောက်",
+        "quarantine":
+        {
+            "returned_count": "419",
+            "home_quarantine": "265",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "25",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "129",
+                "others": "0",
+                "total": "154",
+                "release_count": "0"
+            },
+            "suspicion_count":
+            {
+                "hospital": "0",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "0"
+        }
+    },
+    {
+        "id": "27",
+        "date": "3-4-2020",
+        "district": "သာယာဝတီ",
+        "township": "ဇီးကုန်း",
+        "quarantine":
+        {
+            "returned_count": "324",
+            "home_quarantine": "141",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "0",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "117",
+                "others": "0",
+                "total": "117",
+                "release_count": "65"
+            },
+            "suspicion_count":
+            {
+                "hospital": "1",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "65"
+        }
+    },
+    {
+        "id": "28",
+        "date": "3-4-2020",
+        "district": "သာယာဝတီ",
+        "township": "နတ်တလင်း",
+        "quarantine":
+        {
+            "returned_count": "295",
+            "home_quarantine": "125",
+            "community_based_facility_quarantine":
+            {
+                "religious_building": "0",
+                "hotel": "0",
+                "avenue": "0",
+                "schools": "169",
+                "others": "0",
+                "total": "169",
+                "release_count": "0"
+            },
+            "suspicion_count":
+            {
+                "hospital": "1",
+                "release_count": "0"
+            },
+            "positive_count":
+            {
+                "hospital": "0",
+                "death": "0",
+                "release_count": "0"
+            },
+            "total_release_count": "0"
+        }
+    }]
 }
