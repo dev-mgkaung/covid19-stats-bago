@@ -5,7 +5,7 @@ import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import gov.mm.covid19statsbago.R
-import gov.mm.covid19statsbago.adapter.TableAdapter
+import gov.mm.covid19statsbago.activities.BottomNavigationActivity
 import gov.mm.covid19statsbago.adapter.TreatmentAdapter
 import gov.mm.covid19statsbago.datas.*
 import gov.mm.covid19statsbago.generals.toUniNumber
@@ -35,7 +35,7 @@ class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
     }
 
     private fun tableDataBind(tabledatalist: List<QurantineData>) {
-        Log.e("da=",tabledatalist.get(0).quarantine.toString())
+        Log.e("da=", tabledatalist.get(0).quarantine.toString())
         val tableCellData = mutableListOf<MutableList<TableCellVO>>()
         for (index in 0..tabledatalist.size - 1) {
             tableCellData?.add(
@@ -55,66 +55,87 @@ class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
 
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine?.returned_count.toString().toUniNumber()
+                        data = tabledatalist.get(index).quarantine?.returned_count.toString()
+                            .toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine?.total_release_count.toString().toUniNumber()
+                        data = tabledatalist.get(index).quarantine?.total_release_count.toString()
+                            .toUniNumber()
                     }
 
-
-                    tableCell {
-                        cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine?.keepCount?.religious_building.toString().toUniNumber()
-                    }
-                    tableCell {
-                        cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine?.keepCount?.avenue.toString().toUniNumber()
-                    }
 
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine?.keepCount?.hotel.toString().toUniNumber()
+                        data =
+                            tabledatalist.get(index).quarantine?.keepCount?.religious_building.toString()
+                                .toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine?.keepCount?.schools.toString().toUniNumber()
+                        data = tabledatalist.get(index).quarantine?.keepCount?.avenue.toString()
+                            .toUniNumber()
+                    }
+
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).quarantine?.keepCount?.hotel.toString()
+                            .toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine?.keepCount?.others.toString().toUniNumber()
+                        data = tabledatalist.get(index).quarantine?.keepCount?.schools.toString()
+                            .toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine?.keepCount?.total.toString().toUniNumber()
+                        data = tabledatalist.get(index).quarantine?.keepCount?.others.toString()
+                            .toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine?.keepCount?.release_count.toString().toUniNumber()
+                        data = tabledatalist.get(index).quarantine?.keepCount?.total.toString()
+                            .toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine?.suspicion_count?.hospital.toString().toUniNumber()
+                        data =
+                            tabledatalist.get(index).quarantine?.keepCount?.release_count.toString()
+                                .toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine?.suspicion_count?.release_count.toString().toUniNumber()
+                        data =
+                            tabledatalist.get(index).quarantine?.suspicion_count?.hospital.toString()
+                                .toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine?.positive_count?.hospital.toString().toUniNumber()
+                        data =
+                            tabledatalist.get(index).quarantine?.suspicion_count?.release_count.toString()
+                                .toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine?.positive_count?.death.toString().toUniNumber()
+                        data =
+                            tabledatalist.get(index).quarantine?.positive_count?.hospital.toString()
+                                .toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine?.positive_count?.release_count.toString().toUniNumber()
+                        data = tabledatalist.get(index).quarantine?.positive_count?.death.toString()
+                            .toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine?.total_release_count.toString().toUniNumber()
+                        data =
+                            tabledatalist.get(index).quarantine?.positive_count?.release_count.toString()
+                                .toUniNumber()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).quarantine?.total_release_count.toString()
+                            .toUniNumber()
                     }
 
                 })
@@ -166,7 +187,7 @@ class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
         treatment_table_view.visibility = View.GONE
         JsonParsingForTreatment().getResponseForReturnedPeople(
             success = { datas ->
-           //     treatment_swiperefresh?.isRefreshing = false
+                //     treatment_swiperefresh?.isRefreshing = false
                 treatment_shimmerlayout.visibility = View.GONE
                 treatment_shimmerlayout.stopShimmerAnimation()
                 treatment_table_view.visibility = View.VISIBLE
@@ -180,6 +201,9 @@ class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
     }
 
     override fun onResume() {
+        (activity as BottomNavigationActivity).apply {
+            currentFragment = 2
+        }
         refreshData()
         super.onResume()
     }
