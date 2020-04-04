@@ -59,7 +59,7 @@ class SplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         splashImage.animation = downToUp
-        splashImage.startAnimation(rotate)
+        splashImage.startAnimation(downToUp)
 
         splashText.apply {
             animation = upToDown

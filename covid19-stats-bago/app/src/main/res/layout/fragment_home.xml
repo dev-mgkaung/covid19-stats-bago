@@ -69,7 +69,8 @@
                                 android:text="ပိုးတွေ့ရှိထားသူ"
                                 android:textAlignment="center"
                                 android:textColor="@color/colorWhite"
-                                android:textSize="14sp" />
+                                android:textSize="12sp"
+                                android:padding="3dp"/>
 
                             <gov.mm.covid19statsbago.mmfont.components.MMTextView
                                 android:id="@+id/tv_global_confirm_count"
@@ -99,7 +100,8 @@
                                 android:text="သေဆုံးသူ"
                                 android:textAlignment="center"
                                 android:textColor="@color/colorWhite"
-                                android:textSize="14sp" />
+                                android:textSize="12sp"
+                                android:padding="3dp"/>
 
                             <gov.mm.covid19statsbago.mmfont.components.MMTextView
                                 android:id="@+id/tv_global_death_count"
@@ -129,7 +131,8 @@
                                 android:text="ပြန်ကောင်းလာသူ"
                                 android:textAlignment="center"
                                 android:textColor="@color/colorWhite"
-                                android:textSize="14sp" />
+                                android:textSize="12sp"
+                                android:padding="3dp" />
 
                             <gov.mm.covid19statsbago.mmfont.components.MMTextView
                                 android:id="@+id/tv_global_recover_count"
@@ -176,7 +179,8 @@
                                 android:text="ပိုးတွေ့ရှိထားသူ"
                                 android:textAlignment="center"
                                 android:textColor="@color/colorWhite"
-                                android:textSize="14sp" />
+                                android:textSize="12sp"
+                                android:padding="3dp"/>
 
                             <gov.mm.covid19statsbago.mmfont.components.MMTextView
                                 android:id="@+id/tv_mm_confirm_count"
@@ -206,7 +210,8 @@
                                 android:text="သေဆုံးသူ"
                                 android:textAlignment="center"
                                 android:textColor="@color/colorWhite"
-                                android:textSize="14sp" />
+                                android:textSize="12sp"
+                                android:padding="3dp" />
 
                             <gov.mm.covid19statsbago.mmfont.components.MMTextView
                                 android:id="@+id/tv_mm_death_count"
@@ -236,7 +241,8 @@
                                 android:text="ပြန်ကောင်းလာသူ"
                                 android:textAlignment="center"
                                 android:textColor="@color/colorWhite"
-                                android:textSize="14sp" />
+                                android:textSize="12sp"
+                                android:padding="3dp" />
 
                             <gov.mm.covid19statsbago.mmfont.components.MMTextView
                                 android:id="@+id/tv_mm_recover_count"
