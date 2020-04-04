@@ -1,6 +1,8 @@
 package gov.mm.covid19statsbago.adapter.viewholder
 
+import android.graphics.Color
 import android.view.View
+import android.widget.LinearLayout
 import com.evrencoskun.tableview.adapter.recyclerview.holder.AbstractViewHolder
 import gov.mm.covid19statsbago.R
 import gov.mm.covid19statsbago.datas.TableRowHeaderVO
@@ -21,6 +23,7 @@ class TableRowHeaderViewHolder(private val view: View) : AbstractViewHolder(view
 
     fun bind(data: TableRowHeaderVO) {
         tvRowData.text = data.data
+        view.tv_row_header.requestLayout()
     }
 
     override fun setSelected(selectionState: SelectionState?) {

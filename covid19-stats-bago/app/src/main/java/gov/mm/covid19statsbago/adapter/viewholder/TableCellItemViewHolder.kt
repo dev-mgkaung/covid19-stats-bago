@@ -18,12 +18,12 @@ class TableCellItemViewHolder(private val view: View) : AbstractViewHolder(view)
         view.tv_cell_data.apply {
             text = data.data as String
         }
-      //  requestLayout()
+        requestLayout()
     }
 
     private fun requestLayout() {
-//        view.cell_container.layoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
-//        view.tv_cell_data.requestLayout()
+        view.cell_container.layoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
+        view.tv_cell_data.requestLayout()
     }
 
     override fun setSelected(selectionState: SelectionState) {

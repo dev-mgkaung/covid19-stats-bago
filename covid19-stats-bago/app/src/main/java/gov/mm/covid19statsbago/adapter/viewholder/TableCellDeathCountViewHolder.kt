@@ -1,6 +1,7 @@
 package gov.mm.covid19statsbago.adapter.viewholder
 
 import android.view.View
+import android.widget.LinearLayout
 import com.evrencoskun.tableview.adapter.recyclerview.holder.AbstractViewHolder
 import gov.mm.covid19statsbago.R
 import gov.mm.covid19statsbago.datas.TableCellVO
@@ -15,8 +16,8 @@ class TableCellDeathCountViewHolder(private val view: View) : AbstractViewHolder
 
     fun bind(data: TableCellVO) {
         view.tv_count.text = data.data as String
-        //view.layoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
-        //  view.tv_date.requestLayout()
+      //  view.layoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
+       //   view.tv_count.requestLayout()
     }
     override fun setSelected(selectionState: SelectionState) {
         super.setSelected(selectionState)

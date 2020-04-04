@@ -74,23 +74,23 @@ class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
                 tableCellList {
                     tableCell {
                         cellId = "$index"
-                        data = qurantineData.date
+                        data = qurantineData?.date
                     }
                     tableCell {
                         cellId = "$index"
-                        data = qurantineData.district
+                        data = qurantineData?.district
                     }
                     tableCell {
                         cellId = "$index"
-                        data = qurantineData.township
+                        data = qurantineData?.township
                     }
                     tableCell {
                         cellId = "$index"
-                        data = qurantineData.quarantine.returned_count.toUniNumber()
+                        data = qurantineData?.quarantine?.returned_count.toUniNumber()
                     }
                     tableCell {
                         cellId = "$index"
-                        data = qurantineData.quarantine.home_quarantine.toUniNumber()
+                        data = qurantineData?.quarantine?.home_quarantine.toUniNumber()
                     }
                     tableCell {
                         cellId = "$index"

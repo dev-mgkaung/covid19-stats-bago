@@ -204,7 +204,7 @@
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:column_header_height="@dimen/table_view_cell_height"
+        app:column_header_height="80dp"
         app:row_header_width="@dimen/table_view_row_header_width"
         app:selected_color="@color/selected_background_color"
         app:separator_color="@color/separator_color"

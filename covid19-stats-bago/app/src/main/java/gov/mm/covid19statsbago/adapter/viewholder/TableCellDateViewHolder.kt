@@ -17,7 +17,7 @@ class TableCellDateViewHolder(private val view: View) : AbstractViewHolder(view)
 
     fun bind(data: TableCellVO) {
         view.tv_date.text = data.data as String
-        //view.layoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
+    //    view.layoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
       //  view.tv_date.requestLayout()
     }
     override fun setSelected(selectionState: SelectionState) {

@@ -1,11 +1,14 @@
 package gov.mm.covid19statsbago.adapter.viewholder
 
+import android.graphics.Color
 import android.view.View
+import android.widget.LinearLayout
 import com.evrencoskun.tableview.adapter.recyclerview.holder.AbstractViewHolder
 import gov.mm.covid19statsbago.R
 import gov.mm.covid19statsbago.datas.TableCellVO
 import gov.mm.covid19statsbago.util.getColorValue
 import kotlinx.android.synthetic.main.tableview_cell_count_layout.view.*
+import kotlinx.android.synthetic.main.tableview_row_header_layout.view.*
 
 /**
  * Created by Mg Kaung on 4/4/2020.
@@ -14,8 +17,8 @@ class TableRecoverCountViewHolder(private val view: View) : AbstractViewHolder(v
 
     fun bind(data: TableCellVO) {
         view.tv_count.text = data.data as String
-        //view.layoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
-        //  view.tv_date.requestLayout()
+        view.layoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
+
     }
     override fun setSelected(selectionState: SelectionState) {
         super.setSelected(selectionState)

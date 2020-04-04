@@ -39,7 +39,7 @@ class ReturnedPeopleFragment : Fragment(R.layout.fragment_return) {
 
     private fun tableDataBind(bagoData: List<ReturnedPeople>) {
         tableAdapter.setAllItems(
-            bagoData.first().returned.byCountry.map {
+            bagoData.first()?.returned?.byCountry.map {
                 columnHeader {
                     data = it.country
                 }
