@@ -136,7 +136,7 @@ class TreatmentAdapter(
         0 -> COUNTRY_NAME_TYPE
         1 -> COUNTRY_NAME_TYPE
         2 -> COUNTRY_NAME_TYPE
-     
+
         else -> 0
     }
 }

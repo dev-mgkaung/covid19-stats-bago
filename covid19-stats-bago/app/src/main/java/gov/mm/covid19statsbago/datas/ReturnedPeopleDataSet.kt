@@ -21,7 +21,7 @@ data class ReturnedPeople(
     @SerializedName("date")
     var date: String = "",
     @SerializedName("returned")
-    var returned: Returned? = null,
+    var returned: Returned,
     @SerializedName("suspicion")
     var suspicion: String = "",
     @SerializedName("remark")
@@ -30,7 +30,7 @@ data class ReturnedPeople(
 
 data class Returned(
     @SerializedName("byCountry")
-    var byCountry: List<Country> = arrayListOf(),
+    var byCountry: List<Country> ,
     @SerializedName("total")
     var total: String = ""
 )
