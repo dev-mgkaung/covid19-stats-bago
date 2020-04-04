@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "541878702911",
+    "firebase_url": "https://covid-19-stats-bago.firebaseio.com",
+    "project_id": "covid-19-stats-bago",
+    "storage_bucket": "covid-19-stats-bago.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:541878702911:android:340eb0a5860b48e13fb98a",
+        "android_client_info": {
+          "package_name": "gov.mm.covid19statsbago"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "541878702911-gtrh6qlfcn43tmjssr06cnio5plafjgm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gov.mm.covid19statsbago",
+            "certificate_hash": "7c948b9cc80e9304f9622b7e2b7ab9071d6bcc95"
+          }
+        },
+        {
+          "client_id": "541878702911-hue3hus0gd73r1b5f1knk97hrqvv27na.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3n4dAA6EnnPtFv9KG_Z0LoqlnVY_wzbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "541878702911-hue3hus0gd73r1b5f1knk97hrqvv27na.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
