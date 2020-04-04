@@ -30,7 +30,7 @@ data class ReturnedPeople(
 
 data class Returned(
     @SerializedName("byCountry")
-    var byCountry: List<Country> ,
+    var byCountry: List<Country>,
     @SerializedName("total")
     var total: String = ""
 )

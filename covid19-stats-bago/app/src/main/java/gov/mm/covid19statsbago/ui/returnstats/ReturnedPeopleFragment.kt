@@ -6,7 +6,10 @@ import androidx.fragment.app.Fragment
 import gov.mm.covid19statsbago.R
 import gov.mm.covid19statsbago.activities.BottomNavigationActivity
 import gov.mm.covid19statsbago.adapter.TableAdapter
-import gov.mm.covid19statsbago.datas.*
+import gov.mm.covid19statsbago.datas.ReturnedPeople
+import gov.mm.covid19statsbago.datas.columnHeader
+import gov.mm.covid19statsbago.datas.rowHeader
+import gov.mm.covid19statsbago.datas.tableCellList
 import gov.mm.covid19statsbago.generals.toUniNumber
 import gov.mm.covid19statsbago.jsonparsings.JsonParsingReturnedPeople
 import kotlinx.android.synthetic.main.fragment_return.*
@@ -26,7 +29,6 @@ class ReturnedPeopleFragment : Fragment(R.layout.fragment_return) {
             adapter = tableAdapter
         }
 
-        refreshData()
         return_swiperefresh.apply {
             isRefreshing = true
             setOnRefreshListener {
@@ -35,99 +37,85 @@ class ReturnedPeopleFragment : Fragment(R.layout.fragment_return) {
         }
     }
 
-    private fun tableDataBind(tabledatalist: List<ReturnedPeople>) {
-        val tableCellData = mutableListOf<MutableList<TableCellVO>>()
-        for (index in 0..tabledatalist.size - 1) {
-            tableCellData?.add(
+    private fun tableDataBind(bagoData: List<ReturnedPeople>) {
+        tableAdapter.setAllItems(
+            bagoData.first().returned.byCountry.map {
+                columnHeader {
+                    data = it.country
+                }
+            }.toMutableList().apply {
+                add(0, columnHeader {
+                    data = "နေ့စွဲ"
+                })
+                add(1, columnHeader {
+                    data = "ခရိုင်"
+                })
+                add(2, columnHeader {
+                    data = "မြို့နယ်"
+                })
+                add(columnHeader {
+                    data = "စုစုပေါင်း"
+                })
+                add(columnHeader {
+                    data = "သံသယလူနာဦးရေ"
+                })
+                add(columnHeader {
+                    data = "မှတ်ချက်"
+                })
+            },
+            bagoData.mapIndexed { index, _ ->
+                rowHeader {
+                    data = "${index + 1}"
+                }
+            },
+            bagoData.mapIndexed { index, returnedPeople ->
                 tableCellList {
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).date.toString()
+                        data = returnedPeople.date
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).district.toString()
+                        data = returnedPeople.district
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).township.toString()
+                        data = returnedPeople.township
                     }
-
-                    //for loop country
-                    for (i in 0..(tabledatalist.get(index).returned?.byCountry?.size - 1)) {
+                    returnedPeople.returned.byCountry.forEach {
                         tableCell {
                             cellId = index.toString()
-                            data =
-                                tabledatalist.get(index).returned?.byCountry?.get(i)?.total.toString()
-                                    .toUniNumber()
+                            data = it.total.toUniNumber()
                         }
                     }
-
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).returned?.total.toString().toUniNumber()
-                    }
-                    ///
-
-                    tableCell {
-                        cellId = index.toString()
-                        data = tabledatalist.get(index).suspicion.toString()
+                        data = returnedPeople.returned.total.toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).remark.toString()
+                        data = returnedPeople.suspicion.toUniNumber()
                     }
-                })
-        }
-
-
-        tableAdapter.setAllItems(
-            columnHeaderList {
-                (1..19).forEach {
-                    columnHeader {
-                        data = when (it) {
-                            1 -> "နေ့စွဲ"
-                            2 -> "ခရိုင် "
-                            3 -> "မြို့နယ်"
-                            4 -> "တရုတ်"
-                            5 -> "လာအို"
-                            6 -> "ထိုင်း"
-                            7 -> "အမေရိကန်"
-                            8 -> "မလေးရှား"
-                            9 -> "စင်္ကာပူ"
-                            10 -> "ဂျပန်"
-                            11 -> "ကိုရီးယား"
-                            12 -> "အိန္ဒိယ"
-                            13 -> "ရုရှာ"
-                            14 -> "အင်္ဂလန်"
-                            15 -> "မြဝတီ"
-                            16 -> "အခြားနိုင်ငံ/ အခြားမြို့"
-                            17 -> "စုစုပေါင်း"
-                            18 -> "သံသယလူနာဦးရေ"
-                            19 -> "မှတ်ချက်"
-                            else -> ""
-                        }
+                    tableCell {
+                        cellId = index.toString()
+                        data = returnedPeople.remark.toUniNumber()
                     }
                 }
-            }, rowHeaderList {
-                (0..tabledatalist.size - 1).forEach {
-                    rowHeader {
-                        data = "$it"
-                    }
-                }
-            },
-            tableCellData
+            }
         )
     }
 
     private fun refreshData() {
-        return_swiperefresh?.isRefreshing = true
         return_shimmerlayout.visibility = View.VISIBLE
         return_shimmerlayout.startShimmerAnimation()
         returnpeople_table_view.visibility = View.GONE
         JsonParsingReturnedPeople().getResponseForReturnedPeople(
             success = { data ->
-                return_swiperefresh?.isRefreshing = false
+                if (activity == null || (activity as BottomNavigationActivity).currentFragment != 1) return@getResponseForReturnedPeople
+                return_swiperefresh.apply {
+                    isRefreshing = false
+                    isEnabled = false
+                }
                 return_shimmerlayout.visibility = View.GONE
                 return_shimmerlayout.stopShimmerAnimation()
                 returnpeople_table_view.visibility = View.VISIBLE
@@ -135,6 +123,7 @@ class ReturnedPeopleFragment : Fragment(R.layout.fragment_return) {
 
             },
             error = {
+                if (activity == null || (activity as BottomNavigationActivity).currentFragment != 1) return@getResponseForReturnedPeople
                 return_swiperefresh.isRefreshing = false
             }
         )

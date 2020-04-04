@@ -8,6 +8,7 @@ import retrofit2.http.GET
  * Created by Mg Kaung on 4/3/2020.
  */
 interface ApiInterfaceForRP {
+
     @GET("returned_stats.json")
     fun getReturnedPeopleList(): Call<ReturnedPeopleResponse>
 

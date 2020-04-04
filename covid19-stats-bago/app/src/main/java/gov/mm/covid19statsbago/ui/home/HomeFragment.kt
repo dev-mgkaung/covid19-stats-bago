@@ -88,7 +88,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         allcountrylist.visibility = View.GONE
         JsonParsingDashboardList().getResponseForDashboard(
             success = { data, date ->
-                if ((activity as BottomNavigationActivity).currentFragment != 0) return@getResponseForDashboard
+                if (activity == null || (activity as BottomNavigationActivity).currentFragment != 0) return@getResponseForDashboard
                 swipe_refresh.apply {
                     isRefreshing = false
                     isEnabled = false
@@ -96,7 +96,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 tv_global_confirm_count.text = data.sumBy { it.totalConfirmed }.toUniNumber()
                 tv_global_death_count.text = data.sumBy { it.totalDeaths }.toUniNumber()
                 tv_global_recover_count.text = data.sumBy { it.totalRecovered }.toUniNumber()
-
 
                 tv_today_date?.text = date.toMMDate()
 
@@ -115,7 +114,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
             },
             error = {
-                if ((activity as BottomNavigationActivity).currentFragment == 0) return@getResponseForDashboard
+                if (activity == null || (activity as BottomNavigationActivity).currentFragment != 0) return@getResponseForDashboard
                 swipe_refresh.apply {
                     isRefreshing = false
                 }
