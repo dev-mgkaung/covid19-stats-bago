@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/treatment_swiperefresh"
+   android:orientation="vertical"
     tools:context=".ui.returnstats.ReturnedPeopleFragment">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -206,6 +206,8 @@
             android:layout_height="match_parent"
             app:column_header_height="@dimen/table_view_cell_height"
             app:row_header_width="@dimen/table_view_row_header_width"
+            app:show_horizontal_separator="true"
+            app:show_vertical_separator="true"
             app:selected_color="@color/selected_background_color"
             app:separator_color="@color/separator_color"
             app:shadow_color="@color/shadow_background_color"
@@ -213,4 +215,4 @@
 
 
     </RelativeLayout>
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</LinearLayout>

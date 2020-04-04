@@ -32,7 +32,7 @@ class TableCellItemViewHolder(private val view: View) : AbstractViewHolder(view)
         view.tv_cell_data.setTextColor(
             view.context.getColorValue(
                 if (selectionState == SelectionState.SELECTED) R.color.selected_text_color
-                else R.color.unselected_text_color
+                else R.color.colorPrimaryDark
             )
         )
     }

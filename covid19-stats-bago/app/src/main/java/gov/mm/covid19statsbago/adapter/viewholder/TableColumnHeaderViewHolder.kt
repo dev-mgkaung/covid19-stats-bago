@@ -50,15 +50,15 @@ class TableColumnHeaderViewHolder(private val view: View, private val table: ITa
             text = data.data
         }
 
-        //   container.layoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
-     //   requestLayout()
+          container.layoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
+         requestLayout()
     }
 
     private fun requestLayout() {
-      //  tvCellData.requestLayout()
+       tvCellData.requestLayout()
         btnSort.requestLayout()
-      //  container.requestLayout()
-      //  view.requestLayout()
+        container.requestLayout()
+        view.requestLayout()
     }
 
     override fun setSelected(selectionState: SelectionState?) {
