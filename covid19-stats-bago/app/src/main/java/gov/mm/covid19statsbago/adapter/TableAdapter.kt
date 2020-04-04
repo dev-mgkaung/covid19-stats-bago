@@ -6,10 +6,7 @@ import android.view.ViewGroup
 import com.evrencoskun.tableview.adapter.AbstractTableAdapter
 import com.evrencoskun.tableview.adapter.recyclerview.holder.AbstractViewHolder
 import gov.mm.covid19statsbago.R
-import gov.mm.covid19statsbago.adapter.viewholder.TableCellDateViewHolder
-import gov.mm.covid19statsbago.adapter.viewholder.TableCellItemViewHolder
-import gov.mm.covid19statsbago.adapter.viewholder.TableColumnHeaderViewHolder
-import gov.mm.covid19statsbago.adapter.viewholder.TableRowHeaderViewHolder
+import gov.mm.covid19statsbago.adapter.viewholder.*
 import gov.mm.covid19statsbago.datas.TableCellVO
 import gov.mm.covid19statsbago.datas.TableColumnHeaderVO
 import gov.mm.covid19statsbago.datas.TableRowHeaderVO
@@ -25,17 +22,38 @@ class TableAdapter(
 ) : AbstractTableAdapter<TableColumnHeaderVO, TableRowHeaderVO, TableCellVO>(ctx) {
 
     companion object {
-        const val DATE_TYPE = 1
-        const val ACTION_TYPE = 2
-        const val COLOR_TYPE = 3
-        const val ACTIVE_TYPE = 4
+        const val COUNTRY_NAME_TYPE = 1
+        const val Confirm_TYPE = 2
+        const val Death_TYPE = 3
+        const val Recover_TYPE = 4
     }
 
     override fun onCreateCellViewHolder(parent: ViewGroup?, viewType: Int): AbstractViewHolder {
         return when (viewType) {
-            DATE_TYPE -> TableCellDateViewHolder(
+            COUNTRY_NAME_TYPE -> TableCellDateViewHolder(
                 ctx.getInflateView(
                     R.layout.tableview_cell_date_layout,
+                    parent,
+                    false
+                )
+            )
+            Confirm_TYPE -> TableCellConfirmCountViewHolder(
+                ctx.getInflateView(
+                    R.layout.tableview_cell_count_layout,
+                    parent,
+                    false
+                )
+            )
+            Death_TYPE -> TableCellDeathCountViewHolder(
+                ctx.getInflateView(
+                    R.layout.tableview_cell_count_layout,
+                    parent,
+                    false
+                )
+            )
+            Recover_TYPE -> TableRecoverCountViewHolder(
+                ctx.getInflateView(
+                    R.layout.tableview_cell_count_layout,
                     parent,
                     false
                 )
@@ -61,6 +79,15 @@ class TableAdapter(
                 holder.bind(cellItemModel as TableCellVO, columnPosition)
             }
             is TableCellDateViewHolder -> {
+                holder.bind(cellItemModel as TableCellVO)
+            }
+            is TableCellDeathCountViewHolder -> {
+                holder.bind(cellItemModel as TableCellVO)
+            }
+            is TableRecoverCountViewHolder -> {
+                holder.bind(cellItemModel as TableCellVO)
+            }
+            is TableCellConfirmCountViewHolder -> {
                 holder.bind(cellItemModel as TableCellVO)
             }
         }
@@ -135,11 +162,14 @@ class TableAdapter(
     }
 
     private fun getColumnHeaderType(column: Int): Int = when (column) {
-        else -> 0
+        else -> COUNTRY_NAME_TYPE
     }
 
     private fun getCellViewType(column: Int): Int = when (column) {
-        lastDatePosition -> COLOR_TYPE
+        0 -> COUNTRY_NAME_TYPE
+        1-> Confirm_TYPE
+        2-> Death_TYPE
+        3-> Recover_TYPE
         else -> 0
     }
 }

@@ -259,7 +259,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:layout_marginTop="10dp"
-                            android:background="#E0E0E0"
+                            android:background="#FFFFFF"
                             android:padding="5dp" />
 
                         <gov.mm.covid19statsbago.mmfont.components.MMTextView
@@ -272,7 +272,7 @@
                             android:text="00/00/0000"
                             android:textColor="@color/colorGrey"
                             android:textSize="16sp"
-                            android:textStyle="normal" />
+                            android:textStyle="bold" />
 
                         <View
                             android:layout_width="match_parent"
@@ -290,36 +290,207 @@
                       android:layout_height="match_parent"
                       app:shimmer_color="#E0E0E0"
                       android:id="@+id/shimmerlayout">
-                      <LinearLayout
+                      <ScrollView
                           android:layout_width="match_parent"
-                          android:layout_height="match_parent"
-                          android:orientation="vertical">
-                          <gov.mm.covid19statsbago.mmfont.components.MMTextView
-                              android:layout_width="wrap_content"
-                              android:layout_height="wrap_content"
-                              android:textSize="16sp"
-                              android:layout_margin="10dp"
-                              android:maxLines="1"
-                              android:layout_gravity="center"
-                              android:gravity="center"
-                              android:textColor="#353434"
-                              android:text="လုပ်ဆောင်နေပါသည်ခေတ္တခဏစောင့်ဆိုင်းပေးပါ"/>
-                          <View
+                          android:layout_height="match_parent">
+                          <LinearLayout
                               android:layout_width="match_parent"
-                              android:layout_height="80dp"
-                              android:layout_margin="5dp"
-                              android:background="@drawable/group_bg_grey"/>
-                          <View
-                              android:layout_width="match_parent"
-                              android:layout_height="100dp"
-                              android:layout_margin="8dp"
-                              android:background="@drawable/group_bg_grey"/>
-                          <View
-                              android:layout_margin="5dp"
-                              android:layout_width="match_parent"
-                              android:layout_height="80dp"
-                              android:background="@drawable/group_bg_grey"/>
-                      </LinearLayout>
+                              android:layout_height="match_parent"
+                              android:orientation="vertical">
+                              <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:textSize="16sp"
+                                  android:layout_margin="10dp"
+                                  android:maxLines="1"
+                                  android:layout_gravity="center"
+                                  android:gravity="center"
+                                  android:textColor="#353434"
+                                  android:text="လုပ်ဆောင်နေပါသည်ခေတ္တခဏစောင့်ဆိုင်းပေးပါ"/>
+
+                              <LinearLayout
+                                  android:layout_width="match_parent"
+                                  android:weightSum="4"
+                                  android:layout_height="50dp"
+                                  android:orientation="horizontal">
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                              </LinearLayout>
+                              <LinearLayout
+                                  android:layout_width="match_parent"
+                                  android:weightSum="4"
+                                  android:layout_height="50dp"
+                                  android:orientation="horizontal">
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                              </LinearLayout>
+                              <LinearLayout
+                                  android:layout_width="match_parent"
+                                  android:weightSum="4"
+                                  android:layout_height="50dp"
+                                  android:orientation="horizontal">
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                              </LinearLayout>
+                              <LinearLayout
+                                  android:layout_width="match_parent"
+                                  android:weightSum="4"
+                                  android:layout_height="50dp"
+                                  android:orientation="horizontal">
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                              </LinearLayout>
+                              <LinearLayout
+                                  android:layout_width="match_parent"
+                                  android:weightSum="4"
+                                  android:layout_height="50dp"
+                                  android:orientation="horizontal">
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                              </LinearLayout>
+                              <LinearLayout
+                                  android:layout_width="match_parent"
+                                  android:weightSum="4"
+                                  android:layout_height="50dp"
+                                  android:orientation="horizontal">
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                                  <View
+                                      android:layout_weight="1"
+                                      android:layout_width="0dp"
+                                      android:layout_height="match_parent"
+                                      android:layout_margin="5dp"
+                                      android:background="@drawable/group_bg_grey"/>
+                              </LinearLayout>
+                          </LinearLayout>
+
+                      </ScrollView>
 
                   </io.supercharge.shimmerlayout.ShimmerLayout>
                   <LinearLayout
@@ -356,6 +527,8 @@
                               android:layout_height="match_parent"
                               app:column_header_height="@dimen/table_view_cell_height"
                               app:row_header_width="@dimen/table_view_row_header_width"
+                              app:show_horizontal_separator="true"
+                              app:show_vertical_separator="true"
                               app:selected_color="@color/selected_background_color"
                               app:separator_color="@color/separator_color"
                               app:shadow_color="@color/shadow_background_color"

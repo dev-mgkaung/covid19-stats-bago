@@ -9,11 +9,11 @@
     <string name="menu_home">Home</string>
     <string name="app_name">Covid-19</string>
 
-    <string name="title_home">အခြေအနေ</string>
+    <string name="title_home">Covid-19 ရောဂါ</string>
     <string name="title_pdf">ဆောင်ရန်ရှောင်ရန်</string>
     <string name="title_website">သတင်း</string>
     <string name="title_contact">ဆက်သွယ်ရန်ဖုန်း</string>
-    <string name="tiitle_quaratine">ကွာရတင်းစာရင်</string>
+    <string name="tiitle_quaratine">ကွာရတင်းစာရင်း</string>
 
     <string name="splash_label_one">ကိုးဗစ်နိုင်တီး ရောဂါအား အထိရောက်ဆုံးကာကွယ်ရန် နည်းလမ်းမှာ လက်ကို ဆပ်ပြာဖြင့်စက္ကန့် ၂၀.စင်ကြယ်အောင် ဆေးရမည်</string>
     <string name="splash_label_two">အဆုတ်ရောင်ရောဂါ Cov 19ဖြစ်ပွားသည်ဟု သံသယရှိပါက နီးစပ်ရာ ကျန်းမာရေး ဌာနများသိူ့ အမြန်ဆုံး သတင်းပို့၍ ကုသမှုခံယူပါ</string>

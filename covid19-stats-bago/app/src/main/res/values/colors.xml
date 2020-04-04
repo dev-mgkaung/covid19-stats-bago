@@ -9,7 +9,7 @@
     <color name="colorRed">#E53935</color>
     <color name="colorGreen">#43A047</color>
 
-    <color name="selected_background_color">#F4511E</color>
+    <color name="selected_background_color">#1E88E5</color>
     <color name="unselected_background_color">#FEFFFF</color>
     <color name="shadow_background_color">#FDD835</color>
     <color name="unselected_header_background_color">#ACACAC</color>
