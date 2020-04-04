@@ -20,77 +20,49 @@ data class QurantineData(
     @SerializedName("township")
     var township: String = "",
     @SerializedName("quarantine")
-    var quarantine: Quarantine ?=null
+    val quarantine: Quarantine
 )
 
 data class Quarantine(
 
     @SerializedName("returned_count")
     var returned_count: String = "",
-    @SerializedName("keep_count")
-    var keep_count: KeepCount ?= null,
+    @SerializedName("community_based_facility_quarantine")
+    var keepCount: KeepCount ,
     @SerializedName("suspicion_count")
-    var suspicion_count: SuspicionCount ?= null,
+    var suspicion_count: SuspicionCount,
     @SerializedName("positive_count")
-    var positive_count: PositiveCount ?= null,
+    var positive_count: PositiveCount,
+
+    @SerializedName("home_quarantine")
+    var home_quarantine: String = "",
     @SerializedName("total_release_count")
     var total_release_count: String = ""
 )
 
 data class  KeepCount(
-
-    @SerializedName("home")
-    var home: String = "",
-
     @SerializedName("religious_building")
     var religious_building: String = "",
-
     @SerializedName("hospital")
     var hospital: String = "",
     @SerializedName("hotel")
     var hotel: String = "",
-
     @SerializedName("avenue")
     var avenue: String = "",
-
     @SerializedName("schools")
     var schools: String = "",
-
     @SerializedName("others")
     var others: String = "",
-
     @SerializedName("total")
     var total: String = "",
-
     @SerializedName("release_count")
     var release_count: String = ""
 )
 
 data class SuspicionCount(
 
-    @SerializedName("home")
-    var home: String = "",
-
-    @SerializedName("religious_building")
-    var religious_building: String = "",
-
     @SerializedName("hospital")
     var hospital: String = "",
-
-    @SerializedName("hotel")
-    var hotel: String = "",
-
-    @SerializedName("avenue")
-    var avenue: String = "",
-
-    @SerializedName("schools")
-    var schools: String = "",
-
-    @SerializedName("others")
-    var others: String = "",
-
-    @SerializedName("total")
-    var total: String = "",
 
     @SerializedName("release_count")
     var release_count: String = ""

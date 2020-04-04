@@ -42,28 +42,24 @@ class ReturnedPeopleFragment : Fragment(R.layout.fragment_return) {
                 tableCellList {
                     tableCell {
                         cellId = index.toString()
+                        data = tabledatalist.get(index).date.toString()
+                    }
+                    tableCell {
+                        cellId = index.toString()
                         data = tabledatalist.get(index).district.toString()
                     }
                     tableCell {
                         cellId = index.toString()
                         data = tabledatalist.get(index).township.toString()
                     }
-                    tableCell {
-                        cellId = index.toString()
-                        data = tabledatalist.get(index).date.toString()
+
+                    //for loop country
+                    for(i in 0 ..(tabledatalist.get(index).returned?.byCountry?.size-1)) {
+                        tableCell {
+                            cellId = index.toString()
+                            data = tabledatalist.get(index).returned?.byCountry?.get(i)?.total.toString().toUniNumber()
+                        }
                     }
-//                    //for loop country
-//                    for(i in 0 ..(tabledatalist.get(index).returned?.byCountry?.size?.minus(1)
-//                        ?: 1)) {
-//                        tableCell {
-//                            cellId = index.toString()
-//                            data = tabledatalist.get(index).returned?.byCountry?.get(i)?.country.toString().toUniNumber()
-//                        }
-//                        tableCell {
-//                            cellId = index.toString()
-//                            data = tabledatalist.get(index).returned?.byCountry?.get(i)?.total.toString().toUniNumber()
-//                        }
-//                    }
 
                     tableCell {
                         cellId = index.toString()
@@ -88,25 +84,26 @@ class ReturnedPeopleFragment : Fragment(R.layout.fragment_return) {
                 (1..19).forEach {
                     columnHeader {
                         data = when (it) {
-                            1 -> "ခရိုင် "
-                            2 -> "မြို့နယ်"
-                            3 -> "နေ့စွဲ"
+                            1 -> "နေ့စွဲ"
+                            2 -> "ခရိုင် "
+                            3 ->  "မြို့နယ်"
                             4 -> "တရုတ်"
                             5 -> "လာအို"
                             6 -> "ထိုင်း"
                             7 -> "အမေရိကန်"
-                            8 -> "မလေး"
-                            9 -> "စက်ာပူ"
+                            8 -> "မလေးရှား"
+                            9 -> "စင်္ကာပူ"
                             10 -> "ဂျပန်"
                             11 -> "ကိုရီးယား"
                             12 -> "အိန္ဒိယ"
-                            13 -> "ရှရှား"
-                            14 -> "အဂ်လန်"
+                            13 -> "ရုရှာ"
+                            14 -> "အင်္ဂလန်"
                             15 -> "မြဝတီ"
-                            16 -> "အခြား"
+                            16 -> "အခြားနိုင်ငံ/ အခြားမြို့"
                             17 -> "စုစုပေါင်း"
-                            18 -> "သံသယရှိသူ"
-                            else -> "မှတ်ချက်"
+                            18 -> "သံသယလူနာဦးရေ"
+                            19 -> "မှတ်ချက်"
+                            else -> ""
                         }
                     }
                 }},rowHeaderList {

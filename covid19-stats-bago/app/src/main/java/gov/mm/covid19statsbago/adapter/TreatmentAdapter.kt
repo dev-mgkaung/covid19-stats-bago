@@ -16,16 +16,13 @@ import gov.mm.covid19statsbago.util.getInflateView
  * @author kyawhtut
  * @date 02/04/2020
  */
-class TableAdapter(
+class TreatmentAdapter(
     private val ctx: Context,
     private var lastDatePosition: Int = -1
 ) : AbstractTableAdapter<TableColumnHeaderVO, TableRowHeaderVO, TableCellVO>(ctx) {
 
     companion object {
         const val COUNTRY_NAME_TYPE = 1
-        const val Confirm_TYPE = 2
-        const val Death_TYPE = 3
-        const val Recover_TYPE = 4
     }
 
     override fun onCreateCellViewHolder(parent: ViewGroup?, viewType: Int): AbstractViewHolder {
@@ -33,27 +30,6 @@ class TableAdapter(
             COUNTRY_NAME_TYPE -> TableCellDateViewHolder(
                 ctx.getInflateView(
                     R.layout.tableview_cell_date_layout,
-                    parent,
-                    false
-                )
-            )
-            Confirm_TYPE -> TableCellConfirmCountViewHolder(
-                ctx.getInflateView(
-                    R.layout.tableview_cell_count_layout,
-                    parent,
-                    false
-                )
-            )
-            Death_TYPE -> TableCellDeathCountViewHolder(
-                ctx.getInflateView(
-                    R.layout.tableview_cell_count_layout,
-                    parent,
-                    false
-                )
-            )
-            Recover_TYPE -> TableRecoverCountViewHolder(
-                ctx.getInflateView(
-                    R.layout.tableview_cell_count_layout,
                     parent,
                     false
                 )
@@ -79,15 +55,6 @@ class TableAdapter(
                 holder.bind(cellItemModel as TableCellVO, columnPosition)
             }
             is TableCellDateViewHolder -> {
-                holder.bind(cellItemModel as TableCellVO)
-            }
-            is TableCellDeathCountViewHolder -> {
-                holder.bind(cellItemModel as TableCellVO)
-            }
-            is TableRecoverCountViewHolder -> {
-                holder.bind(cellItemModel as TableCellVO)
-            }
-            is TableCellConfirmCountViewHolder -> {
                 holder.bind(cellItemModel as TableCellVO)
             }
         }
@@ -162,14 +129,14 @@ class TableAdapter(
     }
 
     private fun getColumnHeaderType(column: Int): Int = when (column) {
-        else -> COUNTRY_NAME_TYPE
+        else -> TreatmentAdapter.COUNTRY_NAME_TYPE
     }
 
     private fun getCellViewType(column: Int): Int = when (column) {
         0 -> COUNTRY_NAME_TYPE
-        1-> Confirm_TYPE
-        2-> Death_TYPE
-        3-> Recover_TYPE
+        1 -> COUNTRY_NAME_TYPE
+        2 -> COUNTRY_NAME_TYPE
+
         else -> 0
     }
 }

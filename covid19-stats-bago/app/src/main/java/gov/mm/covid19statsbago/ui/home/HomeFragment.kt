@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import gov.mm.covid19statsbago.R
 import gov.mm.covid19statsbago.adapter.TableAdapter
 import gov.mm.covid19statsbago.datas.*
+import gov.mm.covid19statsbago.generals.toMMDate
 import gov.mm.covid19statsbago.generals.toUniNumber
 import gov.mm.covid19statsbago.jsonparsings.JsonParsingDashboardList
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -93,7 +94,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 tv_global_death_count?.text = data.sumBy { it.totalDeaths }.toUniNumber()
                 tv_global_recover_count?.text = data.sumBy { it.totalRecovered }.toUniNumber()
 
-                tv_today_date?.text = date
+
+                tv_today_date?.text = date.toMMDate()
+
                 if (data.any { it?.country == "Burma" }) {
                     with(data.first { it?.country == "Burma" }) {
                         tv_mm_confirm_count?.text = totalConfirmed.toUniNumber()

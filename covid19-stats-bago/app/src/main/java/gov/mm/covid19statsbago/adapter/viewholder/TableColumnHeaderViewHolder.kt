@@ -1,8 +1,11 @@
 package gov.mm.covid19statsbago.adapter.viewholder
 
+import android.graphics.Color
+import android.os.Build
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.evrencoskun.tableview.ITableView
 import com.evrencoskun.tableview.adapter.recyclerview.holder.AbstractSorterViewHolder
@@ -47,12 +50,12 @@ class TableColumnHeaderViewHolder(private val view: View, private val table: ITa
             text = data.data
         }
 
-        container.layoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
-        requestLayout()
+          container.layoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
+         requestLayout()
     }
 
     private fun requestLayout() {
-        tvCellData.requestLayout()
+       tvCellData.requestLayout()
         btnSort.requestLayout()
         container.requestLayout()
         view.requestLayout()

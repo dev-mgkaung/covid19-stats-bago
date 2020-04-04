@@ -29,62 +29,14 @@ object UtilFont {
             .replace('ဝ', '0')
     }
 
-    fun convertMMCountry(word: String): String {
-        return word.toLowerCase()
-            .replace('1', '၁')
-            .replace('2', '၂')
-            .replace('3', '၃')
-            .replace('4', '၄')
-            .replace('5', '၅')
-            .replace('6', '၆')
-            .replace('7', '၇')
-            .replace('8', '၈')
-            .replace('9', '၉')
-            .replace('0', 'ဝ')
-            .replace('1', '၁')
-            .replace('2', '၂')
-            .replace('3', '၃')
-            .replace('4', '၄')
-            .replace('5', '၅')
-            .replace('6', '၆')
-            .replace('7', '၇')
-            .replace('8', '၈')
-            .replace('9', '၉')
-            .replace('0', 'ဝ')
-            .replace('1', '၁')
-            .replace('2', '၂')
-            .replace('3', '၃')
-            .replace('4', '၄')
-            .replace('5', '၅')
-            .replace('6', '၆')
-            .replace('7', '၇')
-            .replace('8', '၈')
-            .replace('9', '၉')
-            .replace('0', 'ဝ')
-            .replace('1', '၁')
-            .replace('2', '၂')
-            .replace('3', '၃')
-            .replace('4', '၄')
-            .replace('5', '၅')
-            .replace('6', '၆')
-            .replace('7', '၇')
-            .replace('8', '၈')
-            .replace('9', '၉')
-            .replace('0', 'ဝ')
-            .replace('1', '၁')
-            .replace('2', '၂')
-            .replace('3', '၃')
-            .replace('4', '၄')
-            .replace('5', '၅')
-            .replace('6', '၆')
-            .replace('7', '၇')
-            .replace('8', '၈')
-            .replace('9', '၉')
-            .replace('0', 'ဝ')
+
+    fun convertMMDate(word: String): String {
+        return "( "+word.toLowerCase().substring(8,10).toString().toUniNumber()+"/"+word.toLowerCase().substring(5,7).toString().toUniNumber()+"/"+word.toLowerCase().substring(0,4).toString().toUniNumber()+" )"
+
     }
 }
 
-fun String.toMMCountry() = UtilFont.convertMMCountry(this)
+fun String.toMMDate() = UtilFont.convertMMDate(this)
 
 fun String.toUniNumber() = UtilFont.convertUniNumber(this)
 
