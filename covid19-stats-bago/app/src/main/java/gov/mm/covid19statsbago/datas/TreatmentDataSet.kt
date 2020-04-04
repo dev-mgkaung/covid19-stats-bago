@@ -5,9 +5,9 @@ import com.google.gson.annotations.SerializedName
 /**
  * Created by Mg Kaung on 4/4/2020.
  */
-data class TreatmentDataResponse (
+data class TreatmentDataResponse(
     @SerializedName("quarantine_stats")
-    val datas: List<QurantineData>
+    val data: List<QurantineData>
 )
 
 data class QurantineData(
@@ -28,7 +28,7 @@ data class Quarantine(
     @SerializedName("returned_count")
     var returned_count: String = "",
     @SerializedName("community_based_facility_quarantine")
-    var keepCount: KeepCount ,
+    var keepCount: KeepCount,
     @SerializedName("suspicion_count")
     var suspicion_count: SuspicionCount,
     @SerializedName("positive_count")
@@ -40,7 +40,7 @@ data class Quarantine(
     var total_release_count: String = ""
 )
 
-data class  KeepCount(
+data class KeepCount(
     @SerializedName("religious_building")
     var religious_building: String = "",
     @SerializedName("hospital")

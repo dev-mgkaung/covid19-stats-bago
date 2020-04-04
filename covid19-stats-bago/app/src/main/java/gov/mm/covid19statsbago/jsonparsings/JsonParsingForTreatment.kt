@@ -1,8 +1,6 @@
 package gov.mm.covid19statsbago.jsonparsings
 
-import android.util.Log
 import gov.mm.covid19statsbago.datas.QurantineData
-import gov.mm.covid19statsbago.datas.ReturnedPeople
 import gov.mm.covid19statsbago.datas.TreatmentDataResponse
 import gov.mm.covid19statsbago.generals.ApiInterfaceTreatment
 import retrofit2.Call
@@ -30,7 +28,6 @@ class JsonParsingForTreatment {
         call.enqueue(object : Callback<TreatmentDataResponse> {
             override fun onFailure(call: Call<TreatmentDataResponse>, t: Throwable) {
                 t.printStackTrace()
-                Log.e("aaao", t.toString())
                 error(t)
             }
 
@@ -40,11 +37,10 @@ class JsonParsingForTreatment {
             ) {
                 if (response.isSuccessful) {
                     with((response.body() ?: TreatmentDataResponse(mutableListOf()))) {
-                        Log.e("dd=", datas.size.toString())
-                        success(datas)
+                        success(data)
                     }
                 } else {
-                    Log.e("ff=", "Fail")
+                    success(mutableListOf())
                 }
             }
         })
