@@ -16,6 +16,7 @@
             android:id="@+id/treatment_shimmerlayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:visibility="gone"
             app:shimmer_color="#E0E0E0">
 
             <LinearLayout
@@ -50,96 +51,109 @@
             </LinearLayout>
         </io.supercharge.shimmerlayout.ShimmerLayout>
 
-
         <LinearLayout
+            android:id="@+id/treatmentlayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="gone"
-            android:id="@+id/treatmentlayout">
+            android:visibility="visible">
 
             <gov.mm.covid19statsbago.mmfont.components.MMTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_margin="10dp"
+                android:gravity="center"
                 android:lineSpacingExtra="5dp"
-                android:textSize="12sp"
+                android:text="ပဲခူးတိုင်းဒေသကြီးအတွင်း COVID-19 နှင့်ပတ်သက်၍ ပြည်ပနိုင်ငံများမှ ပြန်လည်ရောက်ရှိလာသူများနှင့််‌ ရောဂါ ကာကွယ်/ကုသခြင်း အခြေအနေ"
                 android:textColor="#000000"
-                android:text="ပဲခူးတိုင်းဒေသကြီးအတွင်း COVID-19 နှင့်ပတ်သက်၍ ပြည်ပနိုင်ငံများမှ ပြန်လည်ရောက်ရှိလာသူများနှင့််‌ ရောဂါ ကာကွယ်/ကုသခြင်း အခြေအနေ"/>
+                android:textSize="12sp" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1sp"
-                android:background="#E0E0E0"
-                android:layout_margin="2dp"/>
+                android:layout_height="1dp"
+                android:layout_marginBottom="8dp"
+                android:background="#E0E0E0" />
+
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
                 android:layout_height="wrap_content">
-            <gov.mm.covid19statsbago.mmfont.components.MMTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:id="@+id/treatmentgetalllist"
-                android:layout_margin="10dp"
-                android:layout_alignParentLeft="true"
-                android:textSize="14sp"
-                android:drawableLeft="@drawable/ic_filter_list_black_24dp"
-                android:textColor="#3949AB"
-                android:text="ALL Data"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:gravity="right"
-                android:orientation="horizontal">
 
                 <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                    android:id="@+id/treatmentgetalllist"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
                     android:gravity="center"
-                    android:layout_margin="10dp"
-                    android:textSize="13sp"
-                    android:textColor="#000000"
-                    android:text="ရက်ရွေးရန်"/>
+                    android:text="ALL Data"
+                    android:textColor="#3949AB"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    app:drawableStartCompat="@drawable/ic_filter_list_black_24dp" />
 
-                <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:drawableLeft="@drawable/ic_date_range_black_24dp"
-                    android:layout_margin="10dp"
-                    android:text="00/00/0000"
-                    android:id="@+id/datechoose"
-                    android:textSize="11sp"
-                    android:padding="10dp"
-                    android:background="@drawable/rounded_bg_background_date"
-                    android:textColor="@color/colorPrimary"/>
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
 
-            </LinearLayout>
+                    <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="ရက်ရွေးရန်"
+                        android:textColor="#000000"
+                        android:textSize="13sp" />
+
+                    <gov.mm.covid19statsbago.mmfont.components.MMTextView
+                        android:id="@+id/datechoose"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:background="@drawable/rounded_bg_background_date"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="00/00/0000"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="12sp"
+                        app:drawableStartCompat="@drawable/ic_date_range_black_24dp" />
+
+                </LinearLayout>
             </RelativeLayout>
+
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1sp"
-                android:background="#E0E0E0"
-                android:layout_marginLeft="2dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginRight="2dp"/>
-            <com.evrencoskun.tableview.TableView
-                android:id="@+id/treatment_table_view"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#E0E0E0" />
+
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="visible"
-                app:column_header_height="100dp"
-                app:row_header_width="@dimen/table_view_row_header_width"
-                app:selected_color="@color/selected_background_color"
-                app:separator_color="@color/separator_color"
-                app:shadow_color="@color/shadow_background_color"
-                app:show_horizontal_separator="true"
-                app:show_vertical_separator="true"
-                app:unselected_color="@color/unselected_background_color" />
+                android:layout_height="match_parent">
+
+                <com.evrencoskun.tableview.TableView
+                    android:id="@+id/treatment_table_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible"
+                    app:column_header_height="100dp"
+                    app:row_header_width="@dimen/table_view_row_header_width"
+                    app:selected_color="@color/selected_background_color"
+                    app:separator_color="@color/separator_color"
+                    app:shadow_color="@color/shadow_background_color"
+                    app:show_horizontal_separator="true"
+                    app:show_vertical_separator="true"
+                    app:unselected_color="@color/unselected_background_color" />
+
+                <gov.mm.covid19statsbago.ui.view.ComponentNoDataFound
+                    android:id="@+id/empty_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible" />
+
+            </FrameLayout>
         </LinearLayout>
 
     </LinearLayout>

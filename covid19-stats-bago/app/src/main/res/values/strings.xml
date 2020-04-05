@@ -30,4 +30,5 @@
     <string name="title_treatment">Bago Region Covid-19 Information</string>
 
     <string name="lbl_download_message">ဒေါင်းလုတ်ဆွဲနေပါသဖြင့် Application ထဲမှ မထွက်ပဲ ခန စောင့်ပေးပါ။</string>
+    <string name="lbl_no_data_not_found">%s အတွက် ဒေတာများမရရှိနိုင်သေးပါ။ ကျေးဇူပြု၍ ရက်စွဲပြန်ရွေးပြီး ကြည့်ပေးပါ။</string>
 </resources>

@@ -1,5 +1,6 @@
 package gov.mm.covid19statsbago;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.multidex.MultiDexApplication;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -13,5 +14,7 @@ public class CovidApplication extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         FirebaseAnalytics.getInstance(this);
+
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
 }

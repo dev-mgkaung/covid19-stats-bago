@@ -3,7 +3,6 @@ package gov.mm.covid19statsbago.ui.treatment
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
-import android.widget.DatePicker
 import androidx.fragment.app.Fragment
 import gov.mm.covid19statsbago.R
 import gov.mm.covid19statsbago.activities.BottomNavigationActivity
@@ -12,13 +11,13 @@ import gov.mm.covid19statsbago.datas.*
 import gov.mm.covid19statsbago.generals.toUniNumber
 import gov.mm.covid19statsbago.jsonparsings.JsonParsingForTreatment
 import kotlinx.android.synthetic.main.fragment_treatment.*
-import kotlinx.android.synthetic.main.fragment_treatment.datechoose
+import java.text.SimpleDateFormat
 import java.util.*
 
 class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
 
     private val tableAdapter: TreatmentAdapter by lazy {
-        TreatmentAdapter(requireContext(), 1)
+        TreatmentAdapter(requireContext())
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,109 +35,129 @@ class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
             }
         }
 
-        datechoose.setOnClickListener{
+        datechoose.text = SimpleDateFormat("d/m/yyyy", Locale.ENGLISH).format(Date())
+
+        datechoose.setOnClickListener {
             chooseDatePicker()
         }
-        treatmentgetalllist.setOnClickListener{
-            datechoose.text="00/00/0000"
+        treatmentgetalllist.setOnClickListener {
+            datechoose.text = "00/00/0000"
             refreshData()
         }
 
+        empty_view.setOnClickListener {
+            chooseDatePicker()
+        }
+
     }
-    private fun chooseDatePicker()
-    {
+
+    private fun chooseDatePicker() {
         val mcurrentTime = Calendar.getInstance()
         val year = mcurrentTime.get(Calendar.YEAR)
         val month = mcurrentTime.get(Calendar.MONTH)
         val day = mcurrentTime.get(Calendar.DAY_OF_MONTH)
 
 
-        var datePicker = DatePickerDialog(this!!.activity!!, object : DatePickerDialog.OnDateSetListener {
-            override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-                datechoose.setText(String.format("%d/%d/%d", dayOfMonth, month + 1, year))
+        val datePicker = DatePickerDialog(
+            requireContext(),
+            DatePickerDialog.OnDateSetListener { _, _, _, dayOfMonth ->
+                datechoose.text = String.format("%d/%d/%d", dayOfMonth, month + 1, year)
                 FetchDataByDate(String.format("%d/%d/%d", dayOfMonth, month + 1, year))
-            }
-        }, year, month, day);
+            }, year, month, day
+        )
 
         datePicker.show()
     }
 
     private fun tableDataBind(tabledatalist: List<QurantineData>) {
+        if (tabledatalist.isEmpty() || tabledatalist.size == 1) {
+            treatment_table_view.visibility = View.GONE
+            empty_view.apply {
+                setMessage(getString(R.string.lbl_no_data_not_found, datechoose.text.toString()))
+                visibility = View.VISIBLE
+            }
+            return
+        }
+        empty_view.visibility = View.GONE
+        treatment_table_view.visibility = View.VISIBLE
         val tableCellData = mutableListOf<MutableList<TableCellVO>>()
-        for (index in 1..tabledatalist.size - 1) {
-            tableCellData?.add(
+        for (index in 1 until tabledatalist.size) {
+            tableCellData.add(
                 tableCellList {
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).date.toString()
+                        data = tabledatalist[index].date
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).district.toString()
+                        data = tabledatalist[index].district
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).township.toString()
+                        data = tabledatalist[index].township
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).q_r_count.toString().toUniNumber()
+                        data = tabledatalist[index].q_r_count.toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).q_h_quarantine.toString().toUniNumber()
+                        data = tabledatalist[index].q_h_quarantine.toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).q_religious_building.toString().toUniNumber()
+                        data =
+                            tabledatalist[index].q_religious_building.toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine_avenue.toString().toUniNumber()
+                        data = tabledatalist[index].quarantine_avenue.toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine_hotel.toString().toUniNumber()
+                        data = tabledatalist[index].quarantine_hotel.toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine_schools.toString().toUniNumber()
+                        data = tabledatalist[index].quarantine_schools.toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine_others.toString().toUniNumber()
+                        data = tabledatalist[index].quarantine_others.toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine_total.toString().toUniNumber()
+                        data = tabledatalist[index].quarantine_total.toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).q_release_count.toString().toUniNumber()
+                        data = tabledatalist[index].q_release_count.toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).s_count_hospital.toString().toUniNumber()
+                        data = tabledatalist[index].s_count_hospital.toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).s_count_release_count.toString().toUniNumber()
+                        data =
+                            tabledatalist[index].s_count_release_count.toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).p_count_hospital.toString()
+                        data = tabledatalist[index].p_count_hospital
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).p_count_death.toString()
+                        data = tabledatalist[index].p_count_death
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).p_count_release_count.toString().toUniNumber()
+                        data =
+                            tabledatalist[index].p_count_release_count.toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).total_release_count.toString().toUniNumber()
+                        data = tabledatalist[index].total_release_count.toUniNumber()
                     }
 
                 })
@@ -173,7 +192,7 @@ class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
                     }
                 }
             }, rowHeaderList {
-                (1..tabledatalist.size - 1).forEach {
+                (1 until tabledatalist.size).forEach {
                     rowHeader {
                         data = "$it"
                     }
@@ -183,20 +202,19 @@ class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
         )
     }
 
-    private fun dataShowHide(control :Boolean)
-    {
-        if(control) {
+    private fun dataShowHide(control: Boolean) {
+        if (control) {
 
             treatment_shimmerlayout.stopShimmerAnimation()
             treatment_shimmerlayout.visibility = View.GONE
             treatmentlayout.visibility = View.VISIBLE
-        }else
-        {
+        } else {
             treatment_shimmerlayout.startShimmerAnimation()
             treatment_shimmerlayout.visibility = View.VISIBLE
             treatmentlayout.visibility = View.GONE
         }
     }
+
     private fun refreshData() {
         dataShowHide(false)
         JsonParsingForTreatment().getResponseForReturnedPeople(
@@ -215,7 +233,8 @@ class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
             }
         )
     }
-    private fun FetchDataByDate(sdate:String) {
+
+    private fun FetchDataByDate(sdate: String) {
         dataShowHide(false)
         JsonParsingForTreatment().getResponseForReturnedPeopleByDate(
             querydate = sdate,

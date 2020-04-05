@@ -23,7 +23,7 @@ class TableCellVirusPositiveViewHolder(private val view: View) : AbstractViewHol
         requestLayout(view.tv_date.text.toString())
     }
 
-    private fun requestLayout(text:String) {
+    private fun requestLayout(text: String) {
         view.tv_date.layoutParams.width = LinearLayout.LayoutParams.MATCH_PARENT
         if(text.toInt()>0) {
             view.tv_date.setPadding(8,8,8,8)

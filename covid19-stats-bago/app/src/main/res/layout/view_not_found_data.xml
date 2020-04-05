@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <gov.mm.covid19statsbago.mmfont.components.MMTextView
+        android:id="@+id/pno_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.5"
+        android:text="@string/lbl_no_data_not_found"
+        android:textColor="@color/colorGrey"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/pno_ok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <gov.mm.covid19statsbago.mmfont.components.MMButton
+        android:id="@+id/pno_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_bg_background"
+        android:gravity="center"
+        android:text="ကောင်းပြီ"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/pno_message"
+        app:layout_constraintStart_toStartOf="@+id/pno_message"
+        app:layout_constraintTop_toBottomOf="@+id/pno_message" />
+</androidx.constraintlayout.widget.ConstraintLayout>

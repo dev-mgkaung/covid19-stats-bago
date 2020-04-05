@@ -1,13 +1,9 @@
 package gov.mm.covid19statsbago.adapter.viewholder
 
-import android.graphics.Color
-import android.os.Build
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
-import androidx.annotation.RequiresApi
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.marginLeft
 import com.evrencoskun.tableview.ITableView
 import com.evrencoskun.tableview.adapter.recyclerview.holder.AbstractSorterViewHolder
 import com.evrencoskun.tableview.sort.SortState
@@ -15,9 +11,7 @@ import gov.mm.covid19statsbago.R
 import gov.mm.covid19statsbago.datas.TableColumnHeaderVO
 import gov.mm.covid19statsbago.mmfont.components.MMTextView
 import gov.mm.covid19statsbago.util.getColorValue
-import kotlinx.android.synthetic.main.tableview_cell_item_layout.view.*
 import kotlinx.android.synthetic.main.tableview_column_header_layout.view.*
-import kotlinx.android.synthetic.main.tableview_row_header_layout.view.*
 
 /**
  * @author kyawhtut
@@ -31,7 +25,7 @@ class TableColumnHeaderViewHolder(private val view: View, private val table: ITa
         view.column_header_container
     }
     private val btnSort: ImageView by lazy {
-      view.column_header_sort_imageButton
+        view.column_header_sort_imageButton
     }
     private val tvCellData: MMTextView by lazy {
         view.column_header_textView
@@ -54,7 +48,7 @@ class TableColumnHeaderViewHolder(private val view: View, private val table: ITa
             text = data.data
         }
         container.layoutParams.width = LinearLayout.LayoutParams.MATCH_PARENT
-        container.maxWidth=400
+        container.maxWidth = 400
         requestLayout()
     }
 
@@ -98,7 +92,7 @@ class TableColumnHeaderViewHolder(private val view: View, private val table: ITa
 
     private fun controlSortState(stortState: SortState) {
         btnSort.apply {
-            visibility = View.VISIBLE
+            visibility = View.GONE
             when (stortState) {
                 SortState.ASCENDING -> {
                     setImageResource(R.drawable.ic_arrow_drop_down_black)
@@ -106,7 +100,7 @@ class TableColumnHeaderViewHolder(private val view: View, private val table: ITa
                 SortState.DESCENDING -> {
                     setImageResource(R.drawable.ic_arrow_drop_up_black)
                 }
-                else -> visibility = View.INVISIBLE
+                else -> visibility = View.GONE
             }
         }
     }

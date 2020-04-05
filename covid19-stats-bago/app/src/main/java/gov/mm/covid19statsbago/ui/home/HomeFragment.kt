@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val tableAdapter: TableAdapter by lazy {
-        TableAdapter(requireContext(), 1)
+        TableAdapter(requireContext())
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
