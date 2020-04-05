@@ -1,5 +1,6 @@
 package gov.mm.covid19statsbago.adapter.viewholder
 
+import android.graphics.Color
 import android.view.View
 import android.widget.LinearLayout
 import com.evrencoskun.tableview.adapter.recyclerview.holder.AbstractViewHolder
@@ -22,7 +23,8 @@ class TableCellItemViewHolder(private val view: View) : AbstractViewHolder(view)
     }
 
     private fun requestLayout() {
-        view.cell_container.layoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
+        view.tv_cell_data.layoutParams.width = LinearLayout.LayoutParams.MATCH_PARENT
+      //  view.tv_cell_data.setBackgroundColor(Color.BLACK)
         view.tv_cell_data.requestLayout()
     }
 

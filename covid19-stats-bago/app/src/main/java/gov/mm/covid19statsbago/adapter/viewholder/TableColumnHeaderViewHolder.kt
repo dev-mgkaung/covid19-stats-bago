@@ -15,6 +15,7 @@ import gov.mm.covid19statsbago.R
 import gov.mm.covid19statsbago.datas.TableColumnHeaderVO
 import gov.mm.covid19statsbago.mmfont.components.MMTextView
 import gov.mm.covid19statsbago.util.getColorValue
+import kotlinx.android.synthetic.main.tableview_cell_item_layout.view.*
 import kotlinx.android.synthetic.main.tableview_column_header_layout.view.*
 import kotlinx.android.synthetic.main.tableview_row_header_layout.view.*
 
@@ -52,7 +53,7 @@ class TableColumnHeaderViewHolder(private val view: View, private val table: ITa
         tvCellData.apply {
             text = data.data
         }
-        container.layoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
+        container.layoutParams.width = LinearLayout.LayoutParams.MATCH_PARENT
         container.maxWidth=400
         requestLayout()
     }

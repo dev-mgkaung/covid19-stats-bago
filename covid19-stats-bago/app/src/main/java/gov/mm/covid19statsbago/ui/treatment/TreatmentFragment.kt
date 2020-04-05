@@ -9,6 +9,7 @@ import gov.mm.covid19statsbago.R
 import gov.mm.covid19statsbago.activities.BottomNavigationActivity
 import gov.mm.covid19statsbago.adapter.TreatmentAdapter
 import gov.mm.covid19statsbago.datas.*
+import gov.mm.covid19statsbago.generals.toUniNumber
 import gov.mm.covid19statsbago.jsonparsings.JsonParsingForTreatment
 import kotlinx.android.synthetic.main.fragment_treatment.*
 import kotlinx.android.synthetic.main.fragment_treatment.datechoose
@@ -81,47 +82,47 @@ class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).q_r_count.toString()
+                        data = tabledatalist.get(index).q_r_count.toString().toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).q_h_quarantine.toString()
+                        data = tabledatalist.get(index).q_h_quarantine.toString().toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).q_religious_building.toString()
+                        data = tabledatalist.get(index).q_religious_building.toString().toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine_avenue.toString()
+                        data = tabledatalist.get(index).quarantine_avenue.toString().toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine_hotel.toString()
+                        data = tabledatalist.get(index).quarantine_hotel.toString().toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine_schools.toString()
+                        data = tabledatalist.get(index).quarantine_schools.toString().toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine_others.toString()
+                        data = tabledatalist.get(index).quarantine_others.toString().toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).quarantine_total.toString()
+                        data = tabledatalist.get(index).quarantine_total.toString().toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).q_release_count.toString()
+                        data = tabledatalist.get(index).q_release_count.toString().toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).s_count_hospital.toString()
+                        data = tabledatalist.get(index).s_count_hospital.toString().toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).s_count_release_count.toString()
+                        data = tabledatalist.get(index).s_count_release_count.toString().toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
@@ -133,11 +134,11 @@ class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).p_count_release_count.toString()
+                        data = tabledatalist.get(index).p_count_release_count.toString().toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = tabledatalist.get(index).total_release_count.toString()
+                        data = tabledatalist.get(index).total_release_count.toString().toUniNumber()
                     }
 
                 })

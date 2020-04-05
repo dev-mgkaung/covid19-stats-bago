@@ -6,44 +6,30 @@ import android.view.ViewGroup
 import com.evrencoskun.tableview.adapter.AbstractTableAdapter
 import com.evrencoskun.tableview.adapter.recyclerview.holder.AbstractViewHolder
 import gov.mm.covid19statsbago.R
-import gov.mm.covid19statsbago.adapter.viewholder.*
+import gov.mm.covid19statsbago.adapter.viewholder.TableCellDateViewHolder
+import gov.mm.covid19statsbago.adapter.viewholder.TableCellItemViewHolder
+import gov.mm.covid19statsbago.adapter.viewholder.TableColumnHeaderViewHolder
+import gov.mm.covid19statsbago.adapter.viewholder.TableRowHeaderViewHolder
 import gov.mm.covid19statsbago.datas.TableCellVO
 import gov.mm.covid19statsbago.datas.TableColumnHeaderVO
 import gov.mm.covid19statsbago.datas.TableRowHeaderVO
 import gov.mm.covid19statsbago.util.getInflateView
 
 /**
- * @author kyawhtut
- * @date 02/04/2020
+ * Created by Mg Kaung on 4/5/2020.
  */
-class TreatmentAdapter(
+class ReturnPeopleAdapter(
     private val ctx: Context,
     private var lastDatePosition: Int = -1
 ) : AbstractTableAdapter<TableColumnHeaderVO, TableRowHeaderVO, TableCellVO>(ctx) {
 
     companion object {
         const val COUNTRY_NAME_TYPE = 1
-        const val DEATH_TYPE=2
-        const val VIRUS_POSITIVE_TYPE=3
     }
 
     override fun onCreateCellViewHolder(parent: ViewGroup?, viewType: Int): AbstractViewHolder {
         return when (viewType) {
             COUNTRY_NAME_TYPE -> TableCellDateViewHolder(
-                ctx.getInflateView(
-                    R.layout.tableview_cell_date_layout,
-                    parent,
-                    false
-                )
-            )
-            DEATH_TYPE -> TableCellDeathPatientViewHolder(
-                ctx.getInflateView(
-                    R.layout.tableview_cell_date_layout,
-                    parent,
-                    false
-                )
-            )
-            VIRUS_POSITIVE_TYPE -> TableCellVirusPositiveViewHolder(
                 ctx.getInflateView(
                     R.layout.tableview_cell_date_layout,
                     parent,
@@ -68,12 +54,6 @@ class TreatmentAdapter(
     ) {
         when (holder) {
             is TableCellItemViewHolder -> {
-                holder.bind(cellItemModel as TableCellVO, columnPosition)
-            }
-            is TableCellDeathPatientViewHolder -> {
-                holder.bind(cellItemModel as TableCellVO, columnPosition)
-            }
-            is TableCellVirusPositiveViewHolder -> {
                 holder.bind(cellItemModel as TableCellVO, columnPosition)
             }
             is TableCellDateViewHolder -> {
@@ -155,12 +135,11 @@ class TreatmentAdapter(
     }
 
     private fun getCellViewType(column: Int): Int = when (column) {
-            0 -> COUNTRY_NAME_TYPE
-            1 -> COUNTRY_NAME_TYPE
-            2 -> COUNTRY_NAME_TYPE
-            3->  COUNTRY_NAME_TYPE
-            14-> VIRUS_POSITIVE_TYPE
-            15->DEATH_TYPE
+        0 -> COUNTRY_NAME_TYPE
+        1 -> COUNTRY_NAME_TYPE
+        2 -> COUNTRY_NAME_TYPE
+        3->  COUNTRY_NAME_TYPE
+
         else -> 0
     }
 }

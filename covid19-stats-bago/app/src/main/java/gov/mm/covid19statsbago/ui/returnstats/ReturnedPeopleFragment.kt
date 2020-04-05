@@ -7,7 +7,7 @@ import android.widget.DatePicker
 import androidx.fragment.app.Fragment
 import gov.mm.covid19statsbago.R
 import gov.mm.covid19statsbago.activities.BottomNavigationActivity
-import gov.mm.covid19statsbago.adapter.TableAdapter
+import gov.mm.covid19statsbago.adapter.ReturnPeopleAdapter
 import gov.mm.covid19statsbago.datas.*
 import gov.mm.covid19statsbago.generals.toUniNumber
 import gov.mm.covid19statsbago.jsonparsings.JsonParsingReturnedPeople
@@ -17,8 +17,8 @@ import java.util.*
 
 class ReturnedPeopleFragment : Fragment(R.layout.fragment_return) {
 
-    private val tableAdapter: TableAdapter by lazy {
-        TableAdapter(requireContext(), 1)
+    private val tableAdapter: ReturnPeopleAdapter by lazy {
+        ReturnPeopleAdapter(requireContext(), 1)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
