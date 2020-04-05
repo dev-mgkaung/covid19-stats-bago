@@ -6,10 +6,7 @@ import androidx.fragment.app.Fragment
 import gov.mm.covid19statsbago.R
 import gov.mm.covid19statsbago.activities.BottomNavigationActivity
 import gov.mm.covid19statsbago.adapter.TableAdapter
-import gov.mm.covid19statsbago.datas.CovidCountry
-import gov.mm.covid19statsbago.datas.columnHeaderList
-import gov.mm.covid19statsbago.datas.rowHeaderList
-import gov.mm.covid19statsbago.datas.tableCellList
+import gov.mm.covid19statsbago.datas.*
 import gov.mm.covid19statsbago.generals.toMMDate
 import gov.mm.covid19statsbago.generals.toUniCountryName
 import gov.mm.covid19statsbago.generals.toUniNumber
@@ -98,20 +95,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     isRefreshing = false
                     isEnabled = false
                 }
-                tv_global_confirm_count.text = data.sumBy { it.totalConfirmed }.toUniNumber()
-                tv_global_death_count.text = data.sumBy { it.totalDeaths }.toUniNumber()
-                tv_global_recover_count.text = data.sumBy { it.totalRecovered }.toUniNumber()
-
                 tv_today_date?.text = date.toMMDate()
-
-                if (data.any { it.country == "Myanmar" }) {
-                    with(data.first { it.country == "Myanmar" }) {
-                        tv_mm_confirm_count.text = totalConfirmed.toUniNumber()
-                        tv_mm_death_count.text = totalDeaths.toUniNumber()
-                        tv_mm_recover_count.text = totalRecovered.toUniNumber()
-                    }
-                }
-
                 countrylistcardview.visibility = View.VISIBLE
                 shimmerlayout.visibility = View.GONE
                 shimmerlayout.stopShimmerAnimation()
@@ -126,8 +110,57 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 }
             }
         )
-    }
+        JsonParsingDashboardList().getGlobalStatsDataResponse(
+            success = { data ->
+                if (activity == null || (activity as BottomNavigationActivity).currentFragment != 0) return@getGlobalStatsDataResponse
+                swipe_refresh.apply {
+                    isRefreshing = false
+                    isEnabled = false
+                }
+                dashboardDataBinding(data)
+            },
+            error = {
+                if (activity == null || (activity as BottomNavigationActivity).currentFragment != 0) return@getGlobalStatsDataResponse
+                swipe_refresh.apply {
+                    isRefreshing = false
+                }
+            }
+        )
 
+        JsonParsingDashboardList().getMMStatsDataResponse (
+            success = { data ->
+                if (activity == null || (activity as BottomNavigationActivity).currentFragment != 0) return@getMMStatsDataResponse
+                swipe_refresh.apply {
+                    isRefreshing = false
+                    isEnabled = false
+                }
+                MMDataBinding(data)
+            },
+            error = {
+                if (activity == null || (activity as BottomNavigationActivity).currentFragment != 0) return@getMMStatsDataResponse
+                swipe_refresh.apply {
+                    isRefreshing = false
+                }
+            }
+        )
+    }
+    private fun MMDataBinding(data:MutableList<MMDataResponse>)
+    {
+        tv_mm_confirm_count.text=data.get(0).total_cases.toString().toUniNumber()
+        tv_mm_death_count.text=data.get(0).total_deaths.toString().toUniNumber()
+        tv_mm_recover_count.text=data.get(0).total_recovered.toString().toUniNumber()
+//        today_global_confirm_count.text=" + "+data.get(0).total_new_cases_today.toString().toUniNumber()
+//        today_global_death_count.text=" + "+data.get(0).total_new_deaths_today.toString().toUniNumber()
+    }
+    private fun dashboardDataBinding(data:MutableList<GlobalDataResponse>)
+    {
+        tv_global_confirm_count.text=data.get(0).total_cases.toString().toUniNumber()
+        tv_global_death_count.text=data.get(0).total_deaths.toString().toUniNumber()
+        tv_global_recover_count.text=data.get(0).total_recovered.toString().toUniNumber()
+        today_global_confirm_count.text=" + "+data.get(0).total_new_cases_today.toString().toUniNumber()
+        today_global_death_count.text=" + "+data.get(0).total_new_deaths_today.toString().toUniNumber()
+        countrycount.text=data.get(0).total_affected_countries.toString().toUniNumber()
+    }
     override fun onResume() {
         (activity as BottomNavigationActivity).apply {
             currentFragment = 0
