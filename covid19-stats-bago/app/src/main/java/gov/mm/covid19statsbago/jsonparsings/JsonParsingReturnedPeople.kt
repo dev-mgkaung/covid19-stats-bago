@@ -49,4 +49,39 @@ class JsonParsingReturnedPeople {
         })
     }
 
+    fun getResponseForReturnedPeopleByDate(
+        querydate:String,
+        success: (List<ReturnedPeople>) -> Unit = { _ -> },
+        error: (Throwable) -> Unit = {}
+    ) {
+        val retrofit = Retrofit.Builder()
+            .baseUrl(ApiInterfaceForRP.JSONURL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val api = retrofit.create(ApiInterfaceForRP::class.java)
+        val call = api.getReturnDataListByDate(querydate)
+
+        call.enqueue(object : Callback<ReturnedPeopleResponse> {
+            override fun onFailure(call: Call<ReturnedPeopleResponse>, t: Throwable) {
+                t.printStackTrace()
+                error(t)
+            }
+
+            override fun onResponse(
+                call: Call<ReturnedPeopleResponse>,
+                response: Response<ReturnedPeopleResponse>
+            ) {
+                if (response.isSuccessful) {
+                    with((response.body() ?: ReturnedPeopleResponse(mutableListOf()))) {
+                        success(data)
+                        Log.e("Data=",data.toString());
+                    }
+                } else {
+                    success(mutableListOf())
+                    Log.e("Data=","fail");
+                }
+            }
+        })
+    }
+
 }

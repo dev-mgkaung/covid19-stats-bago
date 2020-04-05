@@ -45,5 +45,36 @@ class JsonParsingForTreatment {
             }
         })
     }
+    fun getResponseForReturnedPeopleByDate(
+        querydate:String,
+        success: (List<QurantineData>) -> Unit = { _ -> },
+        error: (Throwable) -> Unit = {}
+    ) {
+        val retrofit = Retrofit.Builder()
+            .baseUrl(ApiInterfaceTreatment.JSONURL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val api = retrofit.create(ApiInterfaceTreatment::class.java)
+        val call = api.getTreatmentDataListByDate(querydate)
 
+        call.enqueue(object : Callback<TreatmentDataResponse> {
+            override fun onFailure(call: Call<TreatmentDataResponse>, t: Throwable) {
+                t.printStackTrace()
+                error(t)
+            }
+
+            override fun onResponse(
+                call: Call<TreatmentDataResponse>,
+                response: Response<TreatmentDataResponse>
+            ) {
+                if (response.isSuccessful) {
+                    with((response.body() ?: TreatmentDataResponse(mutableListOf()))) {
+                        success(data)
+                    }
+                } else {
+                    success(mutableListOf())
+                }
+            }
+        })
+    }
 }

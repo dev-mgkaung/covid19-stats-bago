@@ -10,7 +10,7 @@
     <string name="menu_home">Home</string>
     <string name="app_name">Bago Region Covid-19 Information</string>
 
-    <string name="title_home">Covid-19 ရောဂါ</string>
+    <string name="title_home">Bago Region Covid-19 Information</string>
     <string name="title_pdf">ဆောင်ရန်ရှောင်ရန်</string>
     <string name="title_website">သတင်း</string>
     <string name="title_contact">ဆက်သွယ်ရန်ဖုန်း</string>
@@ -26,6 +26,6 @@
     <string name="title_activity_tab">TabActivity</string>
 
     <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
-    <string name="title_returnhome">ပြည်ပမှဝင်ရောက်စာရင်း</string>
-    <string name="title_treatment">ရောဂါ ကာကွယ်/ကုသခြင်း အခြေအနေ</string>
+    <string name="title_returnhome">Bago Region Covid-19 Information</string>
+    <string name="title_treatment">Bago Region Covid-19 Information</string>
 </resources>

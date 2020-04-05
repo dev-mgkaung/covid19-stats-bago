@@ -1,15 +1,18 @@
 package gov.mm.covid19statsbago.ui.treatment
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
+import android.widget.DatePicker
 import androidx.fragment.app.Fragment
 import gov.mm.covid19statsbago.R
 import gov.mm.covid19statsbago.activities.BottomNavigationActivity
 import gov.mm.covid19statsbago.adapter.TreatmentAdapter
 import gov.mm.covid19statsbago.datas.*
-import gov.mm.covid19statsbago.generals.toUniNumber
 import gov.mm.covid19statsbago.jsonparsings.JsonParsingForTreatment
 import kotlinx.android.synthetic.main.fragment_treatment.*
+import kotlinx.android.synthetic.main.fragment_treatment.datechoose
+import java.util.*
 
 class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
 
@@ -31,6 +34,32 @@ class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
                 refreshData()
             }
         }
+
+        datechoose.setOnClickListener{
+            chooseDatePicker()
+        }
+        treatmentgetalllist.setOnClickListener{
+            datechoose.text="00/00/0000"
+            refreshData()
+        }
+
+    }
+    private fun chooseDatePicker()
+    {
+        val mcurrentTime = Calendar.getInstance()
+        val year = mcurrentTime.get(Calendar.YEAR)
+        val month = mcurrentTime.get(Calendar.MONTH)
+        val day = mcurrentTime.get(Calendar.DAY_OF_MONTH)
+
+
+        var datePicker = DatePickerDialog(this!!.activity!!, object : DatePickerDialog.OnDateSetListener {
+            override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+                datechoose.setText(String.format("%d/%d/%d", dayOfMonth, month + 1, year))
+                FetchDataByDate(String.format("%d/%d/%d", dayOfMonth, month + 1, year))
+            }
+        }, year, month, day);
+
+        datePicker.show()
     }
 
     private fun tableDataBind(tabledatalist: List<QurantineData>) {
@@ -143,7 +172,7 @@ class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
                     }
                 }
             }, rowHeaderList {
-                (0..tabledatalist.size - 1).forEach {
+                (1..tabledatalist.size - 1).forEach {
                     rowHeader {
                         data = "$it"
                     }
@@ -153,8 +182,22 @@ class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
         )
     }
 
+    private fun dataShowHide(control :Boolean)
+    {
+        if(control) {
+
+            treatment_shimmerlayout.stopShimmerAnimation()
+            treatment_shimmerlayout.visibility = View.GONE
+            treatmentlayout.visibility = View.VISIBLE
+        }else
+        {
+            treatment_shimmerlayout.startShimmerAnimation()
+            treatment_shimmerlayout.visibility = View.VISIBLE
+            treatmentlayout.visibility = View.GONE
+        }
+    }
     private fun refreshData() {
-        treatment_shimmerlayout.startShimmerAnimation()
+        dataShowHide(false)
         JsonParsingForTreatment().getResponseForReturnedPeople(
             success = {
                 if (activity == null || (activity as BottomNavigationActivity).currentFragment != 2) return@getResponseForReturnedPeople
@@ -162,13 +205,30 @@ class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
                     isRefreshing = false
                     isEnabled = false
                 }
-                treatment_shimmerlayout.visibility = View.GONE
-                treatment_shimmerlayout.stopShimmerAnimation()
-                treatment_table_view.visibility = View.VISIBLE
+                dataShowHide(true)
                 tableDataBind(it)
             },
             error = {
                 if (activity == null || (activity as BottomNavigationActivity).currentFragment != 2) return@getResponseForReturnedPeople
+                swipe_refresh.isRefreshing = false
+            }
+        )
+    }
+    private fun FetchDataByDate(sdate:String) {
+        dataShowHide(false)
+        JsonParsingForTreatment().getResponseForReturnedPeopleByDate(
+            querydate = sdate,
+            success = {
+                if (activity == null || (activity as BottomNavigationActivity).currentFragment != 2) return@getResponseForReturnedPeopleByDate
+                swipe_refresh.apply {
+                    isRefreshing = false
+                    isEnabled = false
+                }
+                dataShowHide(true)
+                tableDataBind(it)
+            },
+            error = {
+                if (activity == null || (activity as BottomNavigationActivity).currentFragment != 2) return@getResponseForReturnedPeopleByDate
                 swipe_refresh.isRefreshing = false
             }
         )

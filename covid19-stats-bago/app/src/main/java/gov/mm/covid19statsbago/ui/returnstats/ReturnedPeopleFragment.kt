@@ -1,7 +1,9 @@
 package gov.mm.covid19statsbago.ui.returnstats
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
+import android.widget.DatePicker
 import androidx.fragment.app.Fragment
 import gov.mm.covid19statsbago.R
 import gov.mm.covid19statsbago.activities.BottomNavigationActivity
@@ -10,6 +12,7 @@ import gov.mm.covid19statsbago.datas.*
 import gov.mm.covid19statsbago.generals.toUniNumber
 import gov.mm.covid19statsbago.jsonparsings.JsonParsingReturnedPeople
 import kotlinx.android.synthetic.main.fragment_return.*
+import java.util.*
 
 
 class ReturnedPeopleFragment : Fragment(R.layout.fragment_return) {
@@ -32,8 +35,44 @@ class ReturnedPeopleFragment : Fragment(R.layout.fragment_return) {
                 refreshData()
             }
         }
+        returngetalllist.setOnClickListener{
+            returndatechoose.text="00/00/0000"
+            refreshData()
+        }
+        returndatechoose.setOnClickListener{
+            chooseDatePicker()
+        }
     }
+    private fun dataShowHide(control :Boolean)
+    {
+        if(control) {
+            return_shimmerlayout.stopShimmerAnimation()
+            return_shimmerlayout.visibility = View.GONE
+            returnpeoplelayout.visibility = View.VISIBLE
+        }else
+        {
+            return_shimmerlayout.startShimmerAnimation()
+            return_shimmerlayout.visibility = View.VISIBLE
+            returnpeoplelayout.visibility = View.GONE
+        }
+    }
+    private fun chooseDatePicker()
+    {
+        val mcurrentTime = Calendar.getInstance()
+        val year = mcurrentTime.get(Calendar.YEAR)
+        val month = mcurrentTime.get(Calendar.MONTH)
+        val day = mcurrentTime.get(Calendar.DAY_OF_MONTH)
 
+
+        var datePicker = DatePickerDialog(this!!.activity!!, object : DatePickerDialog.OnDateSetListener {
+            override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+                returndatechoose.setText(String.format("%d/%d/%d", dayOfMonth, month + 1, year))
+                FetchDataByDate(String.format("%d/%d/%d", dayOfMonth, month + 1, year))
+            }
+        }, year, month, day);
+
+        datePicker.show()
+    }
     private fun tableDataBind(tabledatalist: List<ReturnedPeople>) {
         val tableCellData = mutableListOf<MutableList<TableCellVO>>()
         for(index in 1 .. tabledatalist.size-1)
@@ -153,7 +192,7 @@ class ReturnedPeopleFragment : Fragment(R.layout.fragment_return) {
                         }
                     }
                 }}, rowHeaderList {
-                (0 .. tabledatalist.size-1).forEach {
+                (1 .. tabledatalist.size-1).forEach {
                     rowHeader {
                         data = "$it"
                     }
@@ -164,9 +203,7 @@ class ReturnedPeopleFragment : Fragment(R.layout.fragment_return) {
     }
 
     private fun refreshData() {
-        return_shimmerlayout.visibility = View.VISIBLE
-        return_shimmerlayout.startShimmerAnimation()
-        returnpeople_table_view.visibility = View.GONE
+        dataShowHide(false)
         JsonParsingReturnedPeople().getResponseForReturnedPeople(
             success = { data ->
                 if (activity == null || (activity as BottomNavigationActivity).currentFragment != 1) return@getResponseForReturnedPeople
@@ -174,9 +211,7 @@ class ReturnedPeopleFragment : Fragment(R.layout.fragment_return) {
                     isRefreshing = false
                     isEnabled = false
                 }
-                return_shimmerlayout.visibility = View.GONE
-                return_shimmerlayout.stopShimmerAnimation()
-                returnpeople_table_view.visibility = View.VISIBLE
+                dataShowHide(true)
                 tableDataBind(data)
 
             },
@@ -186,7 +221,25 @@ class ReturnedPeopleFragment : Fragment(R.layout.fragment_return) {
             }
         )
     }
+    private fun FetchDataByDate(sdate:String) {
+        dataShowHide(false)
+        JsonParsingReturnedPeople().getResponseForReturnedPeopleByDate(
+            querydate = sdate,
+            success = { data ->
+                if (activity == null || (activity as BottomNavigationActivity).currentFragment != 1) return@getResponseForReturnedPeopleByDate
+                return_swiperefresh.apply {
+                    isRefreshing = false
+                    isEnabled = false
+                }
+                dataShowHide(true)
+                tableDataBind(data)
 
+            },
+            error = {
+                if (activity == null || (activity as BottomNavigationActivity).currentFragment != 1) return@getResponseForReturnedPeopleByDate
+                return_swiperefresh.isRefreshing = false
+            })
+    }
     override fun onResume() {
         (activity as BottomNavigationActivity).apply {
             currentFragment = 1

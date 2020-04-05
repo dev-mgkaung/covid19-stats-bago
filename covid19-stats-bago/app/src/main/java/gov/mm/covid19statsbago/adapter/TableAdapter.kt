@@ -16,6 +16,7 @@ import gov.mm.covid19statsbago.util.getInflateView
  * @author kyawhtut
  * @date 02/04/2020
  */
+
 class TableAdapter(
     private val ctx: Context,
     private var lastDatePosition: Int = -1
