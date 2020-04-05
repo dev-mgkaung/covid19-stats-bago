@@ -257,6 +257,7 @@
                         android:gravity="center"
                         android:layout_margin="10dp"
                         android:text="00/00/0000"
+                        android:drawableLeft="@drawable/ic_date_range_black_24dp"
                         android:id="@+id/returndatechoose"
                         android:textSize="11sp"
                         android:padding="10dp"

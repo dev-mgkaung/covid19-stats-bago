@@ -3,7 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_treatment">
+    <fragment
+        android:id="@+id/navigation_treatment"
+        android:name="gov.mm.covid19statsbago.ui.treatment.TreatmentFragment"
+        android:label="@string/title_treatment"
+        tools:layout="@layout/fragment_treatment" />
 
     <fragment
         android:id="@+id/navigation_home"
@@ -17,9 +22,5 @@
         android:label="@string/title_returnhome"
         tools:layout="@layout/fragment_return" />
 
-    <fragment
-        android:id="@+id/navigation_treatment"
-        android:name="gov.mm.covid19statsbago.ui.treatment.TreatmentFragment"
-        android:label="@string/title_treatment"
-        tools:layout="@layout/fragment_treatment" />
+
 </navigation>

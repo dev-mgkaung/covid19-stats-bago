@@ -106,6 +106,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                         tv_mm_recover_count.text = totalRecovered.toUniNumber()
                     }
                 }
+
                 countrylistcardview.visibility = View.VISIBLE
                 shimmerlayout.visibility = View.GONE
                 shimmerlayout.stopShimmerAnimation()
