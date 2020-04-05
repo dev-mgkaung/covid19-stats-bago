@@ -11,9 +11,11 @@ import gov.mm.covid19statsbago.datas.columnHeaderList
 import gov.mm.covid19statsbago.datas.rowHeaderList
 import gov.mm.covid19statsbago.datas.tableCellList
 import gov.mm.covid19statsbago.generals.toMMDate
+import gov.mm.covid19statsbago.generals.toUniCountryName
 import gov.mm.covid19statsbago.generals.toUniNumber
 import gov.mm.covid19statsbago.jsonparsings.JsonParsingDashboardList
 import kotlinx.android.synthetic.main.fragment_home.*
+import java.util.*
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
@@ -37,8 +39,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }
 
     }
-
+    fun selector(p: CovidCountry): Int = p.newConfirmed
     private fun tableDataBind(countryList: List<CovidCountry>) {
+
+        countryList.sortedBy { it.newConfirmed }
+
         tableAdapter.setAllItems(
             columnHeaderList {
                 (1..4).forEach {
@@ -63,7 +68,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 tableCellList {
                     tableCell {
                         cellId = index.toString()
-                        data = covidCountry.country
+                        data = covidCountry.country.toString().toUniCountryName()
                     }
                     tableCell {
                         cellId = index.toString()
