@@ -1,17 +1,30 @@
 package gov.mm.covid19statsbago.activities;
 
+import android.Manifest
 import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
-import android.os.Handler
+import android.os.Environment
+import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.animation.LinearInterpolator
 import android.view.animation.RotateAnimation
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
+import com.github.florent37.runtimepermission.kotlin.askPermission
+import gov.mm.covid19statsbago.BuildConfig
 import gov.mm.covid19statsbago.R
+import gov.mm.covid19statsbago.generals.EXTRA_APK_NAME
+import gov.mm.covid19statsbago.generals.EXTRA_DOWNLOAD_LINK
+import gov.mm.covid19statsbago.jsonparsings.UpdateCheck
+import gov.mm.covid19statsbago.jsonparsings.UpdateStatus
+import gov.mm.covid19statsbago.util.services.UpdateDownloadService
 import kotlinx.android.synthetic.main.activity_splash_screen.*
+import java.io.File
 import kotlin.random.Random
-
 
 /**
  * Created by mk on 4/1/2020.
@@ -54,6 +67,8 @@ class SplashScreen : AppCompatActivity() {
         )
     }
 
+    private lateinit var updateStatus: UpdateStatus
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
@@ -66,13 +81,103 @@ class SplashScreen : AppCompatActivity() {
             text = infoList[Random.nextInt(3) + 1]
         }
 
-        Handler().postDelayed(
-            {
-                startActivity(Intent(this, BottomNavigationActivity::class.java))
-                finish()
+        UpdateDownloadService.callback = { error, progress ->
+            runOnUiThread {
+                if (error.isNotEmpty()) {
+                    checkUpdate()
+                } else {
+                    download_progress.progress = progress
+                    if (progress == 100) {
+                        installApp()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun askPermission() {
+        askPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) {
+            loading.visibility = View.GONE
+            download_progress.visibility = View.VISIBLE
+            tv_download_message.visibility = View.VISIBLE
+            val downloadService = Intent(this, UpdateDownloadService::class.java)
+            downloadService.apply {
+                putExtra(EXTRA_APK_NAME, updateStatus.apkName)
+                putExtra(EXTRA_DOWNLOAD_LINK, updateStatus.downloadURL)
+            }
+            startService(downloadService)
+        }.onDeclined {
+            finish()
+            return@onDeclined
+        }
+    }
+
+    private fun installApp() {
+        val fileApkToInstall =
+            File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), updateStatus.apkName)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            val apkUri = FileProvider.getUriForFile(
+                this,
+                BuildConfig.APPLICATION_ID + ".update_provider",
+                fileApkToInstall
+            )
+            val intent = Intent(Intent.ACTION_INSTALL_PACKAGE)
+            intent.data = apkUri
+            intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+            startActivity(intent)
+        } else {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.setDataAndType(
+                Uri.fromFile(fileApkToInstall),
+                "application/vnd.android.package-archive"
+            )
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+        }
+    }
+
+    private fun getFileUri(filePath: String): Uri {
+        return if (Build.VERSION.SDK_INT >= 24) {
+            FileProvider.getUriForFile(this, "$packageName.update_provider", File(filePath))
+        } else Uri.fromFile(File(filePath))
+    }
+
+    private fun checkUpdate() {
+        UpdateCheck().checkUpdate(
+            success = {
+                updateStatus = it
+                if (it.isUpdate) {
+                    AlertDialog.Builder(this).apply {
+                        setMessage("Version အသစ်ထွက်နေပါသည်။​ ကျေးဇူပြု၍ ဒေါင်းလုတ်ဆွဲပေးပါ။")
+                        setPositiveButton("Ok") { dialog, _ ->
+                            dialog.dismiss()
+                            askPermission()
+                        }
+                        setCancelable(false)
+                    }.show()
+                } else {
+                    startActivity(Intent(this, BottomNavigationActivity::class.java))
+                    finish()
+                }
             },
-            3000
+            error = {
+                AlertDialog.Builder(this).apply {
+                    setMessage("Internet error. Please try again.")
+                    setPositiveButton("Ok") { dialog, _ ->
+                        checkUpdate()
+                        dialog.dismiss()
+                    }
+                    setNegativeButton("Cancel") { dialog, _ ->
+                        dialog.dismiss()
+                        finish()
+                    }
+                }.show()
+            }
         )
     }
-}
 
+    override fun onResume() {
+        checkUpdate()
+        super.onResume()
+    }
+}

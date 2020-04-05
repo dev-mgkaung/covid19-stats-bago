@@ -86,7 +86,10 @@ dependencies {
 //        transitive = true;
 //    }
     // Retrofit
+    implementation 'com.squareup.okhttp3:okhttp:4.2.2'
     implementation 'com.squareup.retrofit2:retrofit:2.7.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.7.0'
 
+    //runtime permission - https://github.com/florent37/RuntimePermission
+    implementation 'com.github.florent37:runtime-permission-kotlin:1.1.2'
 }

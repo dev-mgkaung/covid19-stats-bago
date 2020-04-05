@@ -28,4 +28,6 @@
     <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
     <string name="title_returnhome">Bago Region Covid-19 Information</string>
     <string name="title_treatment">Bago Region Covid-19 Information</string>
+
+    <string name="lbl_download_message">ဒေါင်းလုတ်ဆွဲနေပါသဖြင့် Application ထဲမှ မထွက်ပဲ ခန စောင့်ပေးပါ။</string>
 </resources>
