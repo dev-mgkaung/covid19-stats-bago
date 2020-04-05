@@ -53,7 +53,7 @@ class TableColumnHeaderViewHolder(private val view: View, private val table: ITa
             text = data.data
         }
         container.layoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
-        container.maxWidth=300
+        container.maxWidth=400
         requestLayout()
     }
 
