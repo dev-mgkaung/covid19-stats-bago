@@ -99,8 +99,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
                 tv_today_date?.text = date.toMMDate()
 
-                if (data.any { it.country == "Burma" }) {
-                    with(data.first { it.country == "Burma" }) {
+                if (data.any { it.country == "Myanmar" }) {
+                    with(data.first { it.country == "Myanmar" }) {
                         tv_mm_confirm_count.text = totalConfirmed.toUniNumber()
                         tv_mm_death_count.text = totalDeaths.toUniNumber()
                         tv_mm_recover_count.text = totalRecovered.toUniNumber()
