@@ -22,6 +22,7 @@ import kotlinx.android.synthetic.main.tableview_row_header_layout.view.*
  * @author kyawhtut
  * @date 02/04/2020
  */
+
 class TableColumnHeaderViewHolder(private val view: View, private val table: ITableView) :
     AbstractSorterViewHolder(view) {
 
@@ -51,15 +52,13 @@ class TableColumnHeaderViewHolder(private val view: View, private val table: ITa
         tvCellData.apply {
             text = data.data
         }
-
         container.layoutParams.width = LinearLayout.LayoutParams.WRAP_CONTENT
-        container.maxWidth=250
+        container.maxWidth=300
         requestLayout()
-
     }
 
     private fun requestLayout() {
-       tvCellData.requestLayout()
+        tvCellData.requestLayout()
         btnSort.requestLayout()
         container.requestLayout()
         view.requestLayout()

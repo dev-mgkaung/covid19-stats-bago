@@ -6,10 +6,7 @@ import androidx.fragment.app.Fragment
 import gov.mm.covid19statsbago.R
 import gov.mm.covid19statsbago.activities.BottomNavigationActivity
 import gov.mm.covid19statsbago.adapter.TreatmentAdapter
-import gov.mm.covid19statsbago.datas.QurantineData
-import gov.mm.covid19statsbago.datas.columnHeaderList
-import gov.mm.covid19statsbago.datas.rowHeader
-import gov.mm.covid19statsbago.datas.tableCellList
+import gov.mm.covid19statsbago.datas.*
 import gov.mm.covid19statsbago.generals.toUniNumber
 import gov.mm.covid19statsbago.jsonparsings.JsonParsingForTreatment
 import kotlinx.android.synthetic.main.fragment_treatment.*
@@ -36,116 +33,123 @@ class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
         }
     }
 
-    private fun tableDataBind(treatmentDataList: List<QurantineData>) {
+    private fun tableDataBind(tabledatalist: List<QurantineData>) {
+        val tableCellData = mutableListOf<MutableList<TableCellVO>>()
+        for (index in 1..tabledatalist.size - 1) {
+            tableCellData?.add(
+                tableCellList {
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).date.toString()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).district.toString()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).township.toString()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).q_r_count.toString()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).q_h_quarantine.toString()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).q_religious_building.toString()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).quarantine_avenue.toString()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).quarantine_hotel.toString()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).quarantine_schools.toString()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).quarantine_others.toString()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).quarantine_total.toString()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).q_release_count.toString()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).s_count_hospital.toString()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).s_count_release_count.toString()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).p_count_hospital.toString()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).p_count_death.toString()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).p_count_release_count.toString()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).total_release_count.toString()
+                    }
+
+                })
+        }
+
+
         tableAdapter.setAllItems(
             columnHeaderList {
                 (1..18).forEach {
                     columnHeader {
                         data = when (it) {
                             1 -> "နေ့စွဲ"
-                            2 -> "ခရိုင်"
+                            2 -> "ခရိုင် "
                             3 -> "မြို့နယ်"
-                            4 -> "ပြည်ပမှဝင်ရောက်လာသည့်ဦးရေ"
+                            4 -> "ပြည်ပမှဝင်ရောက်ဦးရေ"
                             5 -> "Home Quarantines"
-                            6 -> "ဘာသာရေးအဆောက်အဦး"
-                            7 -> "ရိပ်သာ/ခန်းမ"
-                            8 -> "Hotel"
-                            9 -> "စာသင်ကျောင်း/တက္ကသိုလ်"
-                            10 -> "အခြားနေရာများ"
-                            11 -> "CBFQ စုစုပေါင်းလူဦးရေ"
-                            12 -> "ပြည်လည်စေလွှတ်သူဦးရေ(Quarantine)"
-                            13 -> "ဆေးရုံ"
-                            14 -> "ပြည်လည်စေလွှတ်သူဦးရေ(သံသယလူနာ)"
-                            15 -> "ဆေးရုံ"
-                            16 -> "သေဆုံး"
-                            17 -> "ပြည်လည်စေလွှတ်သူဦးရေ(ရောဂါပိုးတွေ့ရှိသူ)"
+                            6 -> "ဘာသာရေးအဆောက်အဦး(Quarantines)"
+                            7 -> "ရိပ်သာ/ခန်းမ(Quarantines)"
+                            8 -> "Hotel(Quarantines)"
+                            9 -> "စာသင်ကျောင်း/တက္ကသိုလ်(Quarantines)"
+                            10 -> "အခြားနေရာများ(Quarantines)"
+                            11 -> "CBFQစုစုပေါင်းလူဦးရေ"
+                            12 -> "ပြည်လည်စေလွှတ်(Quarantine)"
+                            13 -> "ဆေးရုံ(သံသယလူနာ)"
+                            14 -> "ပြည်လည်စေလွှတ်(သံသယလူနာ)"
+                            15 -> "ဆေးရုံ(ရောဂါပိုးတွေ့ရှိသူ)"
+                            16 -> " သေဆုံး(ရောဂါပိုးတွေ့ရှိသူ)"
+                            17 -> "ပြည်လည်စေလွှတ်(ရောဂါပိုးတွေ့ရှိသူ)"
                             18 -> "ပြည်လည်စေလွှတ်သူဦးရေပေါင်း"
                             else -> ""
                         }
                     }
                 }
-            },
-            treatmentDataList.mapIndexed { index, _ ->
-                rowHeader {
-                    data = "${index + 1}"
-                }
-            },
-            treatmentDataList.mapIndexed { index, qurantineData ->
-                tableCellList {
-                    tableCell {
-                        cellId = "$index"
-                        data = qurantineData?.date
-                    }
-                    tableCell {
-                        cellId = "$index"
-                        data = qurantineData?.district
-                    }
-                    tableCell {
-                        cellId = "$index"
-                        data = qurantineData?.township
-                    }
-                    tableCell {
-                        cellId = "$index"
-                        data = qurantineData?.quarantine?.returned_count.toUniNumber()
-                    }
-                    tableCell {
-                        cellId = "$index"
-                        data = qurantineData?.quarantine?.home_quarantine.toUniNumber()
-                    }
-                    tableCell {
-                        cellId = "$index"
-                        data = qurantineData.quarantine.keepCount.religious_building.toUniNumber()
-                    }
-                    tableCell {
-                        cellId = "$index"
-                        data = qurantineData.quarantine.keepCount.avenue.toUniNumber()
-                    }
-                    tableCell {
-                        cellId = "$index"
-                        data = qurantineData.quarantine.keepCount.hotel.toUniNumber()
-                    }
-                    tableCell {
-                        cellId = "$index"
-                        data = qurantineData.quarantine.keepCount.schools.toUniNumber()
-                    }
-                    tableCell {
-                        cellId = "$index"
-                        data = qurantineData.quarantine.keepCount.others.toUniNumber()
-                    }
-                    tableCell {
-                        cellId = "$index"
-                        data = qurantineData.quarantine.keepCount.total.toUniNumber()
-                    }
-                    tableCell {
-                        cellId = "$index"
-                        data = qurantineData.quarantine.keepCount.release_count.toUniNumber()
-                    }
-                    tableCell {
-                        cellId = "$index"
-                        data = qurantineData.quarantine.suspicion_count.hospital.toUniNumber()
-                    }
-                    tableCell {
-                        cellId = "$index"
-                        data = qurantineData.quarantine.suspicion_count.release_count.toUniNumber()
-                    }
-                    tableCell {
-                        cellId = "$index"
-                        data = qurantineData.quarantine.positive_count.hospital.toUniNumber()
-                    }
-                    tableCell {
-                        cellId = "$index"
-                        data = qurantineData.quarantine.positive_count.death.toUniNumber()
-                    }
-                    tableCell {
-                        cellId = "$index"
-                        data = qurantineData.quarantine.positive_count.release_count.toUniNumber()
-                    }
-                    tableCell {
-                        cellId = "$index"
-                        data = qurantineData.quarantine.total_release_count.toUniNumber()
+            }, rowHeaderList {
+                (0..tabledatalist.size - 1).forEach {
+                    rowHeader {
+                        data = "$it"
                     }
                 }
-            }
+            },
+            tableCellData
         )
     }
 

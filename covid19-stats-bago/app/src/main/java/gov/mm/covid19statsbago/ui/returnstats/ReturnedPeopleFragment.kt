@@ -6,10 +6,7 @@ import androidx.fragment.app.Fragment
 import gov.mm.covid19statsbago.R
 import gov.mm.covid19statsbago.activities.BottomNavigationActivity
 import gov.mm.covid19statsbago.adapter.TableAdapter
-import gov.mm.covid19statsbago.datas.ReturnedPeople
-import gov.mm.covid19statsbago.datas.columnHeader
-import gov.mm.covid19statsbago.datas.rowHeader
-import gov.mm.covid19statsbago.datas.tableCellList
+import gov.mm.covid19statsbago.datas.*
 import gov.mm.covid19statsbago.generals.toUniNumber
 import gov.mm.covid19statsbago.jsonparsings.JsonParsingReturnedPeople
 import kotlinx.android.synthetic.main.fragment_return.*
@@ -37,71 +34,132 @@ class ReturnedPeopleFragment : Fragment(R.layout.fragment_return) {
         }
     }
 
-    private fun tableDataBind(bagoData: List<ReturnedPeople>) {
-        tableAdapter.setAllItems(
-            bagoData.first()?.returned?.byCountry.map {
-                columnHeader {
-                    data = it.country
-                }
-            }.toMutableList().apply {
-                add(0, columnHeader {
-                    data = "နေ့စွဲ"
-                })
-                add(1, columnHeader {
-                    data = "ခရိုင်"
-                })
-                add(2, columnHeader {
-                    data = "မြို့နယ်"
-                })
-                add(columnHeader {
-                    data = "စုစုပေါင်း"
-                })
-                add(columnHeader {
-                    data = "သံသယလူနာဦးရေ"
-                })
-                add(columnHeader {
-                    data = "မှတ်ချက်"
-                })
-            },
-            bagoData.mapIndexed { index, _ ->
-                rowHeader {
-                    data = "${index + 1}"
-                }
-            },
-            bagoData.mapIndexed { index, returnedPeople ->
+    private fun tableDataBind(tabledatalist: List<ReturnedPeople>) {
+        val tableCellData = mutableListOf<MutableList<TableCellVO>>()
+        for(index in 1 .. tabledatalist.size-1)
+        {
+            tableCellData?.add(
                 tableCellList {
                     tableCell {
                         cellId = index.toString()
-                        data = returnedPeople.date
+                        data = tabledatalist.get(index).date.toString()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = returnedPeople.district
+                        data = tabledatalist.get(index).district.toString()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = returnedPeople.township
+                        data = tabledatalist.get(index).township.toString()
                     }
-                    returnedPeople.returned.byCountry.forEach {
-                        tableCell {
-                            cellId = index.toString()
-                            data = it.total.toUniNumber()
+
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).china.toString().toUniNumber()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).laro.toString().toUniNumber()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).thai.toString().toUniNumber()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).american.toString().toUniNumber()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).malaysia.toString().toUniNumber()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).singapore.toString().toUniNumber()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).japan.toString().toUniNumber()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).koera.toString().toUniNumber()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).india.toString().toUniNumber()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).russia.toString().toUniNumber()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).england.toString().toUniNumber()
+                    }
+
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).myawaddy.toString().toUniNumber()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).other.toString().toUniNumber()
+                    }
+
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).total.toString().toUniNumber()
+                    }
+                    ///
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).suspicion.toString()
+                    }
+                    tableCell {
+                        cellId = index.toString()
+                        data = tabledatalist.get(index).remark.toString()
+                    }
+                })
+        }
+
+
+
+        tableAdapter.setAllItems(
+            columnHeaderList {
+                (1..19).forEach {
+                    columnHeader {
+                        data = when (it) {
+                            1 -> "နေ့စွဲ"
+                            2 -> "ခရိုင် "
+                            3 ->  "မြို့နယ်"
+                            4 -> "တရုတ်"
+                            5 -> "လာအို"
+                            6 -> "ထိုင်း"
+                            7 -> "အမေရိကန်"
+                            8 -> "မလေးရှား"
+                            9 -> "စင်္ကာပူ"
+                            10 -> "ဂျပန်"
+                            11 -> "ကိုရီးယား"
+                            12 -> "အိန္ဒိယ"
+                            13 -> "ရုရှား"
+                            14 -> "အင်္ဂလန်"
+                            15 -> "မြဝတီ"
+                            16 -> "အခြားနိုင်ငံ/အခြားမြို့"
+                            17 -> "စုစုပေါင်း"
+                            18 -> "သံသယလူနာဦးရေ"
+                            19 -> "မှတ်ချက်"
+                            else -> ""
                         }
                     }
-                    tableCell {
-                        cellId = index.toString()
-                        data = returnedPeople.returned.total.toUniNumber()
-                    }
-                    tableCell {
-                        cellId = index.toString()
-                        data = returnedPeople.suspicion.toUniNumber()
-                    }
-                    tableCell {
-                        cellId = index.toString()
-                        data = returnedPeople.remark.toUniNumber()
+                }}, rowHeaderList {
+                (0 .. tabledatalist.size-1).forEach {
+                    rowHeader {
+                        data = "$it"
                     }
                 }
-            }
+            },
+            tableCellData
         )
     }
 

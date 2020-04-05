@@ -1,5 +1,6 @@
 package gov.mm.covid19statsbago.jsonparsings
 
+import android.util.Log
 import gov.mm.covid19statsbago.datas.ReturnedPeople
 import gov.mm.covid19statsbago.datas.ReturnedPeopleResponse
 import gov.mm.covid19statsbago.generals.ApiInterfaceForRP
@@ -38,9 +39,11 @@ class JsonParsingReturnedPeople {
                 if (response.isSuccessful) {
                     with((response.body() ?: ReturnedPeopleResponse(mutableListOf()))) {
                         success(data)
+                        Log.e("Data=",data.toString());
                     }
                 } else {
                     success(mutableListOf())
+                    Log.e("Data=","fail");
                 }
             }
         })

@@ -9,10 +9,10 @@ import retrofit2.http.GET
  */
 interface ApiInterfaceForRP {
 
-    @GET("returned_stats.json")
+    @GET("api?id=1s0kdwOyNdy77qYufx6_csJLR6bzJ0Ov49WIbg0O237A&sheet=1")
     fun getReturnedPeopleList(): Call<ReturnedPeopleResponse>
 
     companion object {
-        const val JSONURL = RETURNED_PEOPLE_JSON_URL
+        const val JSONURL = GOOGLESHEET_URL
     }
 }
