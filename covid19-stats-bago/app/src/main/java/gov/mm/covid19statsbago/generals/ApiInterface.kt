@@ -36,17 +36,17 @@ data class CovidCountry(
 
 data class CountryInfo(
     @SerializedName("_id")
-    val id: Int,
+    val id: Int?,
     @SerializedName("iso2")
-    val iso2: String,
+    val iso2: String?,
     @SerializedName("iso3")
-    val iso3: String,
+    val iso3: String?,
     @SerializedName("flag")
     val flag: String
 )
 
-fun List<CovidCountry>.getUpdatedDate(): String =
-    SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH).format(Date(first().updated.toLong()))
+fun getUpdatedDate(): String =
+    SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH).format(Date())
         .toUniNumber()
 
 fun List<CovidCountry>.getMyanmar() =
