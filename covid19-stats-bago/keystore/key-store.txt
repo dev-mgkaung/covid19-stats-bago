@@ -1,0 +1,3 @@
+Password - password
+Key Alias - covid-bago
+Key Alias Password - password
