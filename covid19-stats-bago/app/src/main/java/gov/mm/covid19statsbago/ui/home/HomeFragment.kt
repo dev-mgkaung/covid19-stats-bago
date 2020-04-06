@@ -6,12 +6,10 @@ import androidx.fragment.app.Fragment
 import gov.mm.covid19statsbago.R
 import gov.mm.covid19statsbago.activities.BottomNavigationActivity
 import gov.mm.covid19statsbago.adapter.TableAdapter
-import gov.mm.covid19statsbago.datas.CovidCountry
 import gov.mm.covid19statsbago.datas.columnHeaderList
 import gov.mm.covid19statsbago.datas.rowHeaderList
 import gov.mm.covid19statsbago.datas.tableCellList
-import gov.mm.covid19statsbago.generals.toMMDate
-import gov.mm.covid19statsbago.generals.toUniNumber
+import gov.mm.covid19statsbago.generals.*
 import gov.mm.covid19statsbago.jsonparsings.JsonParsingDashboardList
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -67,15 +65,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = covidCountry.totalConfirmed.toUniNumber()
+                        data = covidCountry.cases.toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = covidCountry.totalDeaths.toUniNumber()
+                        data = covidCountry.deaths.toUniNumber()
                     }
                     tableCell {
                         cellId = index.toString()
-                        data = covidCountry.totalRecovered.toUniNumber()
+                        data = covidCountry.recovered.toUniNumber()
                     }
                 }
             }
@@ -93,19 +91,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     isRefreshing = false
                     isEnabled = false
                 }
-                tv_global_confirm_count.text = data.sumBy { it.totalConfirmed }.toUniNumber()
-                tv_global_death_count.text = data.sumBy { it.totalDeaths }.toUniNumber()
-                tv_global_recover_count.text = data.sumBy { it.totalRecovered }.toUniNumber()
+                tv_global_confirm_count.text = data.getTotalCases()
+                tv_global_death_count.text = data.getTotalDeaths()
+                tv_global_recover_count.text = data.getTotalRecovered()
 
-                tv_today_date?.text = date.toMMDate()
+                tv_today_date?.text = date
 
-                if (data.any { it.country == "Myanmar" }) {
-                    with(data.first { it.country == "Myanmar" }) {
-                        tv_mm_confirm_count.text = totalConfirmed.toUniNumber()
-                        tv_mm_death_count.text = totalDeaths.toUniNumber()
-                        tv_mm_recover_count.text = totalRecovered.toUniNumber()
-                    }
-                }
+                tv_mm_confirm_count.text = data.getMyanmar().cases.toUniNumber()
+                tv_mm_death_count.text = data.getMyanmar().deaths.toUniNumber()
+                tv_mm_recover_count.text = data.getMyanmar().recovered.toUniNumber()
 
                 countrylistcardview.visibility = View.VISIBLE
                 shimmerlayout.visibility = View.GONE

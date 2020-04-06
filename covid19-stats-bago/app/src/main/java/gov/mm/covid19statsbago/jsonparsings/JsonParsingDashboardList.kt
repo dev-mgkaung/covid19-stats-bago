@@ -1,8 +1,8 @@
 package gov.mm.covid19statsbago.jsonparsings
 
-import gov.mm.covid19statsbago.datas.CovidCountry
-import gov.mm.covid19statsbago.datas.CovidCountryResponse
 import gov.mm.covid19statsbago.generals.ApiInterface
+import gov.mm.covid19statsbago.generals.CovidCountry
+import gov.mm.covid19statsbago.generals.getUpdatedDate
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,24 +18,24 @@ class JsonParsingDashboardList {
         error: (Throwable) -> Unit = {}
     ) {
         val retrofit = Retrofit.Builder()
-            .baseUrl(ApiInterface.JSONURL)
+            .baseUrl("https://corona.lmao.ninja")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val api = retrofit.create(ApiInterface::class.java)
         val call = api.getCovidCountryList()
-        call.enqueue(object : Callback<CovidCountryResponse> {
-            override fun onFailure(call: Call<CovidCountryResponse>, t: Throwable) {
+        call.enqueue(object : Callback<List<CovidCountry>> {
+            override fun onFailure(call: Call<List<CovidCountry>>, t: Throwable) {
                 t.printStackTrace()
                 error(t)
             }
 
             override fun onResponse(
-                call: Call<CovidCountryResponse>,
-                response: Response<CovidCountryResponse>
+                call: Call<List<CovidCountry>>,
+                response: Response<List<CovidCountry>>
             ) {
                 if (response.isSuccessful) {
-                    with((response.body() ?: CovidCountryResponse("", mutableListOf()))) {
-                        success(data, date)
+                    with((response.body() ?: mutableListOf())) {
+                        success(this, getUpdatedDate())
                     }
                 }
             }

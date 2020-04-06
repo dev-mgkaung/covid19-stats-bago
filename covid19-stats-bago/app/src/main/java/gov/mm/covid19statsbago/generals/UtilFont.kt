@@ -31,7 +31,9 @@ object UtilFont {
 
 
     fun convertMMDate(word: String): String {
-        return "( "+word.toLowerCase().substring(8,10).toString().toUniNumber()+"/"+word.toLowerCase().substring(5,7).toString().toUniNumber()+"/"+word.toLowerCase().substring(0,4).toString().toUniNumber()+" )"
+        return "( " + word.toLowerCase().substring(8, 10).toUniNumber() + "/" + word.toLowerCase()
+            .substring(5, 7)
+            .toUniNumber() + "/" + word.toLowerCase().substring(0, 4).toUniNumber() + " )"
 
     }
 }
