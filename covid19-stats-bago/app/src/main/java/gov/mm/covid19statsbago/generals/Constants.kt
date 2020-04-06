@@ -20,3 +20,5 @@ const val TREATMENT_JSON_URL =
     "https://raw.githubusercontent.com/wyphyoe/covid19-stats-bago/master/real_data/"
 
 const val GOOGLESHEET_URL = "http://gsx2json.com/"
+
+const val VIRUSTRACKER_URL="https://api.thevirustracker.com/"
