@@ -1,13 +1,11 @@
 package gov.mm.covid19statsbago.jsonparsings
 
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.kyawhtut.sheet2json.Sheet2Json
 import gov.mm.covid19statsbago.datas.ReturnedPeople
-import gov.mm.covid19statsbago.datas.ReturnedPeopleResponse
-import gov.mm.covid19statsbago.generals.ApiInterfaceForRP
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 /**
  * Created by Mg Kaung on 4/2/2020.
@@ -18,32 +16,27 @@ class JsonParsingReturnedPeople {
         success: (List<ReturnedPeople>) -> Unit = { _ -> },
         error: (Throwable) -> Unit = {}
     ) {
-        val retrofit = Retrofit.Builder()
-            .baseUrl(ApiInterfaceForRP.JSONURL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        val api = retrofit.create(ApiInterfaceForRP::class.java)
-        val call = api.getReturnedPeopleList()
-
-        call.enqueue(object : Callback<ReturnedPeopleResponse> {
-            override fun onFailure(call: Call<ReturnedPeopleResponse>, t: Throwable) {
-                t.printStackTrace()
-                error(t)
-            }
-
-            override fun onResponse(
-                call: Call<ReturnedPeopleResponse>,
-                response: Response<ReturnedPeopleResponse>
-            ) {
-                if (response.isSuccessful) {
-                    with((response.body() ?: ReturnedPeopleResponse(mutableListOf()))) {
+        Sheet2Json.get("1s0kdwOyNdy77qYufx6_csJLR6bzJ0Ov49WIbg0O237A")
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    if (it.isNotEmpty()) {
+                        val data = Gson().fromJson<List<ReturnedPeople>>(
+                            it,
+                            object : TypeToken<List<ReturnedPeople>>() {}.type
+                        )
                         success(data)
+                    } else {
+                        success(mutableListOf())
                     }
-                } else {
-                    success(mutableListOf())
+                },
+                {
+                    it.printStackTrace()
+                    error(it)
                 }
-            }
-        })
+            )
+            .isDisposed
     }
 
     fun getResponseForReturnedPeopleByDate(
@@ -51,32 +44,27 @@ class JsonParsingReturnedPeople {
         success: (List<ReturnedPeople>) -> Unit = { _ -> },
         error: (Throwable) -> Unit = {}
     ) {
-        val retrofit = Retrofit.Builder()
-            .baseUrl(ApiInterfaceForRP.JSONURL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        val api = retrofit.create(ApiInterfaceForRP::class.java)
-        val call = api.getReturnDataListByDate(querydate)
-
-        call.enqueue(object : Callback<ReturnedPeopleResponse> {
-            override fun onFailure(call: Call<ReturnedPeopleResponse>, t: Throwable) {
-                t.printStackTrace()
-                error(t)
-            }
-
-            override fun onResponse(
-                call: Call<ReturnedPeopleResponse>,
-                response: Response<ReturnedPeopleResponse>
-            ) {
-                if (response.isSuccessful) {
-                    with((response.body() ?: ReturnedPeopleResponse(mutableListOf()))) {
+        Sheet2Json.get("1s0kdwOyNdy77qYufx6_csJLR6bzJ0Ov49WIbg0O237A", query = querydate)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    if (it.isNotEmpty()) {
+                        val data = Gson().fromJson<List<ReturnedPeople>>(
+                            it,
+                            object : TypeToken<List<ReturnedPeople>>() {}.type
+                        )
                         success(data)
+                    } else {
+                        success(mutableListOf())
                     }
-                } else {
-                    success(mutableListOf())
+                },
+                {
+                    it.printStackTrace()
+                    error(it)
                 }
-            }
-        })
+            )
+            .isDisposed
     }
 
 }

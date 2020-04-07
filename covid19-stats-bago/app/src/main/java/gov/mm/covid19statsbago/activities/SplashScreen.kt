@@ -19,8 +19,8 @@ import gov.mm.covid19statsbago.BuildConfig
 import gov.mm.covid19statsbago.R
 import gov.mm.covid19statsbago.generals.EXTRA_APK_NAME
 import gov.mm.covid19statsbago.generals.EXTRA_DOWNLOAD_LINK
+import gov.mm.covid19statsbago.generals.UpdateStatus
 import gov.mm.covid19statsbago.jsonparsings.UpdateCheck
-import gov.mm.covid19statsbago.jsonparsings.UpdateStatus
 import gov.mm.covid19statsbago.util.services.UpdateDownloadService
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 import java.io.File
@@ -146,7 +146,7 @@ class SplashScreen : AppCompatActivity() {
         UpdateCheck().checkUpdate(
             success = {
                 updateStatus = it
-                if (it.isUpdate) {
+                if (it.version == BuildConfig.VERSION_NAME) {
                     AlertDialog.Builder(this).apply {
                         setMessage("Version အသစ်ထွက်နေပါသည်။​ ကျေးဇူပြု၍ ဒေါင်းလုတ်ဆွဲပေးပါ။")
                         setPositiveButton("Ok") { dialog, _ ->

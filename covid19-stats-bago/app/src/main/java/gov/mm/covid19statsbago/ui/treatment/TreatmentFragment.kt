@@ -8,10 +8,10 @@ import gov.mm.covid19statsbago.R
 import gov.mm.covid19statsbago.activities.BottomNavigationActivity
 import gov.mm.covid19statsbago.adapter.TreatmentAdapter
 import gov.mm.covid19statsbago.datas.*
+import gov.mm.covid19statsbago.generals.getUpdatedDate
 import gov.mm.covid19statsbago.generals.toUniNumber
 import gov.mm.covid19statsbago.jsonparsings.JsonParsingForTreatment
 import kotlinx.android.synthetic.main.fragment_treatment.*
-import java.text.SimpleDateFormat
 import java.util.*
 
 class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
@@ -35,7 +35,7 @@ class TreatmentFragment : Fragment(R.layout.fragment_treatment) {
             }
         }
 
-        datechoose.text = SimpleDateFormat("d/m/yyyy", Locale.ENGLISH).format(Date())
+        datechoose.text = getUpdatedDate()
 
         datechoose.setOnClickListener {
             chooseDatePicker()

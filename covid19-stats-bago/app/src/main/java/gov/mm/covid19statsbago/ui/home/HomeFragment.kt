@@ -61,7 +61,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 tableCellList {
                     tableCell {
                         cellId = index.toString()
-                        data = covidCountry.country
+                        data = covidCountry.country.toUniCountryName()
                     }
                     tableCell {
                         cellId = index.toString()

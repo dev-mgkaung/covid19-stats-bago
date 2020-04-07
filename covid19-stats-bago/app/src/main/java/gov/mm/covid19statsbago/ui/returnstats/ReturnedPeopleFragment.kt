@@ -8,6 +8,7 @@ import gov.mm.covid19statsbago.R
 import gov.mm.covid19statsbago.activities.BottomNavigationActivity
 import gov.mm.covid19statsbago.adapter.ReturnPeopleAdapter
 import gov.mm.covid19statsbago.datas.*
+import gov.mm.covid19statsbago.generals.getUpdatedDate
 import gov.mm.covid19statsbago.generals.toUniNumber
 import gov.mm.covid19statsbago.jsonparsings.JsonParsingReturnedPeople
 import kotlinx.android.synthetic.main.fragment_return.*
@@ -36,7 +37,7 @@ class ReturnedPeopleFragment : Fragment(R.layout.fragment_return) {
             }
         }
 
-        returndatechoose.text = SimpleDateFormat("d/m/yyyy", Locale.ENGLISH).format(Date())
+        returndatechoose.text = getUpdatedDate()
 
         returngetalllist.setOnClickListener {
             returndatechoose.text = "00/00/0000"

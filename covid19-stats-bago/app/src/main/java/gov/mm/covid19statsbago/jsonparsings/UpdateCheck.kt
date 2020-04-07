@@ -1,7 +1,8 @@
 package gov.mm.covid19statsbago.jsonparsings
 
-import com.google.gson.annotations.SerializedName
+import gov.mm.covid19statsbago.BuildConfig
 import gov.mm.covid19statsbago.generals.UPDATE_CHECK_BASE_URL
+import gov.mm.covid19statsbago.generals.UpdateStatus
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -32,7 +33,7 @@ class UpdateCheck {
                 response: Response<UpdateStatus>
             ) {
                 if (response.isSuccessful) {
-                    success(response.body() ?: UpdateStatus("", "", false, ""))
+                    success(response.body() ?: UpdateStatus("", BuildConfig.VERSION_NAME, ""))
                 }
             }
         })
@@ -44,14 +45,3 @@ interface UpdateCheckApi {
     @GET("/wyphyoe/covid19-stats-bago/master/sample_json_structure/update-status.json")
     fun checkUpdate(): Call<UpdateStatus>
 }
-
-data class UpdateStatus(
-    @SerializedName("apk_name")
-    val apkName: String,
-    @SerializedName("version")
-    val version: String,
-    @SerializedName("update_available")
-    val isUpdate: Boolean,
-    @SerializedName("download_link")
-    val downloadURL: String
-)

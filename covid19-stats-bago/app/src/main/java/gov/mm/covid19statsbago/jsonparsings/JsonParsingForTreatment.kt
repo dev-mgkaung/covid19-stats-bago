@@ -1,13 +1,11 @@
 package gov.mm.covid19statsbago.jsonparsings
 
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.kyawhtut.sheet2json.Sheet2Json
 import gov.mm.covid19statsbago.datas.QurantineData
-import gov.mm.covid19statsbago.datas.TreatmentDataResponse
-import gov.mm.covid19statsbago.generals.ApiInterfaceTreatment
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 /**
  * Created by Mg Kaung on 4/4/2020.
@@ -18,63 +16,58 @@ class JsonParsingForTreatment {
         success: (List<QurantineData>) -> Unit = { _ -> },
         error: (Throwable) -> Unit = {}
     ) {
-        val retrofit = Retrofit.Builder()
-            .baseUrl(ApiInterfaceTreatment.JSONURL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        val api = retrofit.create(ApiInterfaceTreatment::class.java)
-        val call = api.getTreatmentDataList()
-
-        call.enqueue(object : Callback<TreatmentDataResponse> {
-            override fun onFailure(call: Call<TreatmentDataResponse>, t: Throwable) {
-                t.printStackTrace()
-                error(t)
-            }
-
-            override fun onResponse(
-                call: Call<TreatmentDataResponse>,
-                response: Response<TreatmentDataResponse>
-            ) {
-                if (response.isSuccessful) {
-                    with((response.body() ?: TreatmentDataResponse(mutableListOf()))) {
+        Sheet2Json.get("1s0kdwOyNdy77qYufx6_csJLR6bzJ0Ov49WIbg0O237A", sheetNumber = 2)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    if (it.isNotEmpty()) {
+                        val data = Gson().fromJson<List<QurantineData>>(
+                            it,
+                            object : TypeToken<List<QurantineData>>() {}.type
+                        )
                         success(data)
+                    } else {
+                        success(mutableListOf())
                     }
-                } else {
-                    success(mutableListOf())
+                },
+                {
+                    it.printStackTrace()
+                    error(it)
                 }
-            }
-        })
+            )
+            .isDisposed
     }
+
     fun getResponseForReturnedPeopleByDate(
-        querydate:String,
+        querydate: String,
         success: (List<QurantineData>) -> Unit = { _ -> },
         error: (Throwable) -> Unit = {}
     ) {
-        val retrofit = Retrofit.Builder()
-            .baseUrl(ApiInterfaceTreatment.JSONURL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        val api = retrofit.create(ApiInterfaceTreatment::class.java)
-        val call = api.getTreatmentDataListByDate(querydate)
-
-        call.enqueue(object : Callback<TreatmentDataResponse> {
-            override fun onFailure(call: Call<TreatmentDataResponse>, t: Throwable) {
-                t.printStackTrace()
-                error(t)
-            }
-
-            override fun onResponse(
-                call: Call<TreatmentDataResponse>,
-                response: Response<TreatmentDataResponse>
-            ) {
-                if (response.isSuccessful) {
-                    with((response.body() ?: TreatmentDataResponse(mutableListOf()))) {
+        Sheet2Json.get(
+            "1s0kdwOyNdy77qYufx6_csJLR6bzJ0Ov49WIbg0O237A",
+            sheetNumber = 2,
+            query = querydate
+        )
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    if (it.isNotEmpty()) {
+                        val data = Gson().fromJson<List<QurantineData>>(
+                            it,
+                            object : TypeToken<List<QurantineData>>() {}.type
+                        )
                         success(data)
+                    } else {
+                        success(mutableListOf())
                     }
-                } else {
-                    success(mutableListOf())
+                },
+                {
+                    it.printStackTrace()
+                    error(it)
                 }
-            }
-        })
+            )
+            .isDisposed
     }
 }

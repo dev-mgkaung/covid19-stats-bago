@@ -1,3 +1,6 @@
+plugins {
+    id 'com.gladed.androidgitversion' version '0.4.13'
+}
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
@@ -10,10 +13,14 @@ android {
 
     defaultConfig {
         applicationId "gov.mm.covid19statsbago"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 29
+
+        versionName androidGitVersion.name()
+//        versionCode androidGitVersion.code()
         versionCode 1
-        versionName "1.0"
+        archivesBaseName = "Covid-19-Bago-$versionName"
+
         vectorDrawables.useSupportLibrary true
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -33,6 +40,12 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            output.outputFileName = new File("../../${defaultConfig.versionName}", outputFileName)
+        }
     }
 
 // To inline the bytecode built with JVM target 1.8 into
@@ -92,4 +105,9 @@ dependencies {
 
     //runtime permission - https://github.com/florent37/RuntimePermission
     implementation 'com.github.florent37:runtime-permission-kotlin:1.1.2'
+
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.11'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+    implementation 'com.github.kyawhtut-cu:Sheet2Json:1.0.0'
 }
