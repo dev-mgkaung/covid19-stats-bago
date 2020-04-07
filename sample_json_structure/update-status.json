@@ -1,6 +1,5 @@
 {
   "apk_name" : "apk_name.apk",
-  "version": "1.0",
-  "update_available": false,
+  "version": "1.0.1",
   "download_link": "url/apk_name.apk"
 }

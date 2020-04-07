@@ -17,8 +17,7 @@ android {
         targetSdkVersion 29
 
         versionName androidGitVersion.name()
-//        versionCode androidGitVersion.code()
-        versionCode 1
+        versionCode androidGitVersion.code()
         archivesBaseName = "Covid-19-Bago-$versionName"
 
         vectorDrawables.useSupportLibrary true
