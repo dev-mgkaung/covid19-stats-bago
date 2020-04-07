@@ -146,7 +146,7 @@ class SplashScreen : AppCompatActivity() {
         UpdateCheck().checkUpdate(
             success = {
                 updateStatus = it
-                if (it.version == BuildConfig.VERSION_NAME) {
+                if (it.version != BuildConfig.VERSION_NAME) {
                     AlertDialog.Builder(this).apply {
                         setMessage("Version အသစ်ထွက်နေပါသည်။​ ကျေးဇူပြု၍ ဒေါင်းလုတ်ဆွဲပေးပါ။")
                         setPositiveButton("Ok") { dialog, _ ->
