@@ -40,8 +40,6 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-<<<<<<< HEAD
-=======
 
     android.applicationVariants.all { variant ->
         variant.outputs.all { output ->
@@ -49,10 +47,6 @@ android {
         }
     }
 
-// To inline the bytecode built with JVM target 1.8 into
-// bytecode that is being built with JVM target 1.6. (e.g. navArgs)
-
->>>>>>> 680c21428dce7c2236b811163e4ec6727bec2263
 }
 
 
