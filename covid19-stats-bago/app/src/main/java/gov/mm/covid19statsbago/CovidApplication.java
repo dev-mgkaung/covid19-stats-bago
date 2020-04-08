@@ -13,8 +13,8 @@ public class CovidApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        FirebaseAnalytics.getInstance(this);
 
+        FirebaseAnalytics.getInstance(this);
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
     }
 }
