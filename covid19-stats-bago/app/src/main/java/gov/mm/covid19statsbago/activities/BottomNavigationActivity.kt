@@ -14,6 +14,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.kyawhtut.sheet2json.Sheet2Json
 import gov.mm.covid19statsbago.R
 import mk.myday.kotlinpj.model.Utils
 
@@ -28,6 +29,7 @@ class BottomNavigationActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Sheet2Json.init()
 
         setContentView(R.layout.activity_bottom_navigation)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)

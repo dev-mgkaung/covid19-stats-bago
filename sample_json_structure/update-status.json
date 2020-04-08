@@ -1,6 +1,5 @@
 {
-  "apk_name" : "apk_name.apk",
-  "version": "1.0",
-  "update_available": false,
-  "download_link": "url/apk_name.apk"
+  "apk_name" : "Covid-19-Bago-1.0.2.apk",
+  "version": "1.0.2",
+  "download_link": "https://firebasestorage.googleapis.com/v0/b/fb-php-test.appspot.com/o/Covid-19-Bago-1.0.2.apk?alt=media&token=d12cb4e2-ba01-487f-9d10-c8cc945aec4e"
 }

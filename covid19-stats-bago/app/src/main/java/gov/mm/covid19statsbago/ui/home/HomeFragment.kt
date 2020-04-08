@@ -95,7 +95,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 tv_global_death_count.text = data.getTotalDeaths()
                 tv_global_recover_count.text = data.getTotalRecovered()
 
-                tv_today_date?.text = date
+                tv_today_date.text = date
 
                 tv_mm_confirm_count.text = data.getMyanmar().cases.toUniNumber()
                 tv_mm_death_count.text = data.getMyanmar().deaths.toUniNumber()
